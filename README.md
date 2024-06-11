@@ -1,7 +1,7 @@
 # ProjetoFinal-FabricaSoftware
 Fábrica de Software - UNISC
 
-Time 8
+Time 5
 
 Componentes:
 
