@@ -20,5 +20,10 @@ from app_main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path('planejamento/', views.planejamento , name='planejamento'),
+    path('movimentacoes/', views.movimentacoes , name='movimentacoes'),
+    #path('settings/', views.settings , name='settings'),
+    #path('perfil/', views.perfil , name='perfil'),
+    #path('logout/', views.logout , name='logout')
 ]
