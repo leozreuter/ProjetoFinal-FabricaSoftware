@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Home | Gestor Financeiro</title>
-    <link rel="stylesheet" href=".\home.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_main/css/home/home.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,112 +16,6 @@
 
     <link rel="shortcut icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABL0lEQVR4nO2TTU4CQRSEPzkDGOcAXII7sIDAGcStHsjByAlYIYtO/GFhvAJLdMcOSNiMeUmRDDh2xjegGyuZ9LzunqrX1TXwB6gBfWAITIEU6Gm+Ms6BFyADFsBMo9XPQKNq50a+Ai6BOjDSOND8U5WT9NWpkSfAm+ol0AauVHe9Aney4wy4EdkcGANNzX/oTlyYyCJDC9hKZKsa3Yntc8FS865Om+p8LpFreW8nuPUK9EQ2kOdL1a/ARe4OOgffJbJtmou17f+CmqK4Epml516j1WvgsSBFRrjJCWxip2woipnsmmnMRF70HwQ939WFJ+mqswd104nk/8cCRUgiPh9FII34fBSBECEpLeC1IZQV8NoQygp4ScK/wK9ccupc24NF0hZ2G+19F1Pv2unxCWJ/qsBOhuknAAAAAElFTkSuQmCC">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            text-decoration: none;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            background-color: #5BA5A3;
-            overflow: hidden;
-            align-items: center;
-        }
-
-        header {
-            background-color: #03514F;
-            height: 99px;
-            width: 100%;
-        }
-
-        .list-header {
-            height: 99px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 26px;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-
-            & a {
-                color: white;
-                display: flex;
-                align-items: center;
-                gap: 3px;
-            }
-        }
-
-
-        .header-icons {
-            display: flex;
-            gap: 10px;
-        }
-
-
-        .item-header :hover {
-            color: #5BA5A3
-        }
-
-        .minor-icons :hover {
-            color: #5BA5A3
-        }
-
-        .material-symbols-outlined {
-
-            font-variation-settings:
-                'FILL' 1,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 48
-        }
-
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: center;
-            gap: 30px 40px;
-            width: 90%;
-            height: 80vh;
-            margin-top: 3.5%;
-        }
-
-        .container-content {
-            background-color: #eeeeee9a;
-            width: 40%;
-            height: 78.5vh;
-            border-radius: 15px;
-        }
-
-        .second-container {
-            background-color: #eeeeee9a;
-            width: 40%;
-            height: 40vh;
-            border-radius: 15px;
-        }
-
-        .double-span {
-            width: 40%;
-            height: 35vh;
-            display: grid;
-            grid-template-columns: repeat(2, 47.5%);
-            gap: 5%;
-
-            & span {
-                background-color: #eeeeee9a;
-                border-radius: 15px;
-            }
-        }
-    </style>
 </head>
 
 <body>

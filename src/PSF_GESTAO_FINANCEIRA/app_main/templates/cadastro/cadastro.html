@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_main/css/cadastro/cadastro.css' %}">
+    <link rel="shortcut icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABL0lEQVR4nO2TTU4CQRSEPzkDGOcAXII7sIDAGcStHsjByAlYIYtO/GFhvAJLdMcOSNiMeUmRDDh2xjegGyuZ9LzunqrX1TXwB6gBfWAITIEU6Gm+Ms6BFyADFsBMo9XPQKNq50a+Ai6BOjDSOND8U5WT9NWpkSfAm+ol0AauVHe9Aney4wy4EdkcGANNzX/oTlyYyCJDC9hKZKsa3Yntc8FS865Om+p8LpFreW8nuPUK9EQ2kOdL1a/ARe4OOgffJbJtmou17f+CmqK4Epml516j1WvgsSBFRrjJCWxip2woipnsmmnMRF70HwQ939WFJ+mqswd104nk/8cCRUgiPh9FII34fBSBECEpLeC1IZQV8NoQygp4ScK/wK9ccupc24NF0hZ2G+19F1Pv2unxCWJ/qsBOhuknAAAAAElFTkSuQmCC">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cadastro</h1>
+
+    <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
+
+        <input type="text" placeholder="Username" name="username">
+        <br>
+        <input type="email" placeholder="Email" name="email">
+        <br>
+        <input type="password" placeholder="Senha" name="senha">
+        <br>
+        <input type="submit" value="Cadastrar">
+        <br>
+    </form>
+</body>
+
+</html>

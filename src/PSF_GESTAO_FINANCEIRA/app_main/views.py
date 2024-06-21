@@ -17,7 +17,7 @@ def settings(request):
 
 def cadastro(request):
     if request.method == 'GET':
-        return render(request, 'cadastro.html')
+        return render(request, 'cadastro\cadastro.html')
     else:
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -32,4 +32,4 @@ def cadastro(request):
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'login\login.html')
