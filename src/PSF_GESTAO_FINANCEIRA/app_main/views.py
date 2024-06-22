@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 # Create your views here.
 def home(request):
@@ -23,13 +24,28 @@ def cadastro(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        user = User.objects.filter(username=username).first()
+        user = User.objects.filter(username=username).first() or User.objects.filter(email=email).first()
 
         if user:
-            return HttpResponse(status=409)
+            return HttpResponse('Já existe usuário cadastrado com este usuário ou Email', status=409)
         
-        return HttpResponse(username)
+        novoUser = User.objects.create_user(username=username, email=email, password=senha)
+        novoUser.save()
 
+        return HttpResponse(f"Usuário {username} cadastrado com sucesso!", status=201)
 
 def login(request):
-    return render(request, 'login/login.html')
+    if request.method == 'GET':
+       return render(request, 'login/login.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+
+        if user:
+            #login(request, user)
+
+            return HttpResponse('Autenticado com sucesso!', status=201)
+        else:
+            return HttpResponse('Usuario ou Senha inválidos')
