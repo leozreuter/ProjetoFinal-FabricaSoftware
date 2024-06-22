@@ -22,7 +22,7 @@
     <div class="container-principal">
         <div class="logo"><span class="material-symbols-outlined"> image </span></div>
 
-        <form action="{% url 'cadastro' %}" method="POST">
+        <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
 
 
             <div class="input-login">
