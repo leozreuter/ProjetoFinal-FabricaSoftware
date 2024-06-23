@@ -7,14 +7,43 @@ from django.contrib.auth import authenticate
 def home(request):
     return render(request, 'home/home.html')
 
-def planejamento(request):
-    return HttpResponse ('<h1> teste </h1>')
+def planejamentos(request):
+
+    titulo = "teste123"
+    saldo_atual = 10000
+    saldo_objetivo = 199999
+    concluido = False
+
+    barra = (saldo_atual * 100) // saldo_objetivo
+    if barra >= 100:
+        barra = 100
+        concluido = True
+
+    context = {
+        'range': range(2),  # This creates a range object from 0 to 4
+        'titulo': titulo,
+        'saldo_objetivo': saldo_objetivo,
+        'data': '12/12/2012',
+        'insvest_mes': '123,45',
+        'saldo_atual': saldo_atual,
+        'barra': range(barra),
+        'concluido': concluido
+    }
+
+
+    return render(request, 'planejamentos/planejamentos.html', context)
 
 def movimentacoes(request):
-    return HttpResponse ('<h1> teste </h1>')
+    return render(request, 'movimentacoes/movimentacoes.html')
 
-def settings(request):
-    return none
+def configuracoes(request):
+    return render(request, 'configuracoes/configuracoes.html')
+
+def perfil(request):
+    return render(request, 'home/home.html')
+
+def logout(request):
+    return render(request, 'home/home.html')
 
 def cadastro(request):
     if request.method == 'GET':

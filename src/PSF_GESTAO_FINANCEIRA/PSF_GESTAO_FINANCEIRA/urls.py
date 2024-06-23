@@ -23,9 +23,9 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('planejamento/', views.planejamento , name='planejamento'),
+    path('planejamentos/', views.planejamentos , name='planejamentos'),
     path('movimentacoes/', views.movimentacoes , name='movimentacoes'),
-    #path('settings/', views.settings , name='settings'),
-    #path('perfil/', views.perfil , name='perfil'),
-    #path('logout/', views.logout , name='logout')
+    path('configuracoes/', views.configuracoes , name='configuracoes'),
+    path('perfil/', views.perfil , name='perfil'),
+    path('logout/', views.logout , name='logout')
 ]
