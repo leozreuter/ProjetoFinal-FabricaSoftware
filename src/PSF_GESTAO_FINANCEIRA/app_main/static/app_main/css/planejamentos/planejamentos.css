@@ -110,7 +110,7 @@ header{
     width: 100%;
     height: 87%;
     display: grid;
-    justify-self: center;
+    align-items: center;
 }
 
 .pesquisa-itens{
