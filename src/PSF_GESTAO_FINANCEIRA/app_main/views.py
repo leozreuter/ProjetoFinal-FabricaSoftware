@@ -10,17 +10,18 @@ def home(request):
 def planejamentos(request):
 
     titulo = "teste123"
-    saldo_atual = 10000
+    saldo_atual = 1000000
     saldo_objetivo = 199999
     concluido = False
 
     barra = (saldo_atual * 100) // saldo_objetivo
+    
     if barra >= 100:
         barra = 100
         concluido = True
 
     context = {
-        'range': range(2),  # This creates a range object from 0 to 4
+        'range': range(7),
         'titulo': titulo,
         'saldo_objetivo': saldo_objetivo,
         'data': '12/12/2012',

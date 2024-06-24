@@ -12,7 +12,7 @@ body{
     flex-direction: column;
     width: 100%;
     background-color: #5BA5A3;
-    overflow: hidden;
+    overflow: visible;
     align-items: center;
 }
 
@@ -77,13 +77,13 @@ header{
 .container-content{
     background-color: #ffffffab;
     width: 100%;
-    height: 78.5vh;
+    height: max-content;
     border-radius: 15px;
     margin-top: 1%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .add-itens{
@@ -114,7 +114,7 @@ header{
 }
 
 .pesquisa-itens{
-    margin-left: 2%;
+    margin: 1% 0 0.5% 2%;
     width: 20%;
     height: 40px;
     background-color: #b3b3b3;
@@ -138,13 +138,16 @@ header{
 
 .itens{
     width: 96%;
-    height: 90%;
+    height: 95%;
     background-color: #b3b3b3;
     justify-self: center;
     border-radius: 15px;
     padding: 15px;
 }
 
+.itens:hover{
+    background-color: #9c9c9c;
+}
 
 .barra_cheia{
     width: 65%;
