@@ -142,11 +142,12 @@ header{
     background-color: #b3b3b3;
     justify-self: center;
     border-radius: 15px;
+    padding: 15px;
 }
 
 
 .barra_cheia{
-    width: 60%;
+    width: 65%;
     height: 15px;
     background-color: rgb(126, 126, 126);
     display: flex;
@@ -155,7 +156,7 @@ header{
 }
 
 .porcentagem{
-    width: 1%;
+    width: 0.9%;
     height: 80%;
     background-color: #013d3b;
 }
