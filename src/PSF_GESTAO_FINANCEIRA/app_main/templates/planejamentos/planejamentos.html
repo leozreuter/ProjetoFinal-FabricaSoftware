@@ -23,7 +23,7 @@
 
     <header>
         <ul class="list-header">
-            <li class="item-header"><a href="{% url 'home' %}">logo</a></li>
+            <li class="item-header"><a href="{% url 'home' %}">pyLa</a></li>
             <li class="item-header"><a href="{% url 'home' %}"><span class="material-symbols-outlined">home</span>
                     HOME</a>
             </li>
@@ -64,34 +64,63 @@
 
             <div class="container-itens">
                 {% for i in range %}
-                    <div class="itens">
+                <div class="itens">
 
+                    <div class="titulo">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6UlEQVR4nO2Z34tVVRTHP6LNlJAp6FydygR1oP4CHcuHNPVCpU816btvolhDgxDok4zTiyDhj9cekiLUNPUh6Rc0VA/W5PxQn7TpJQs10a46Hlmwrlxu+8c65+5zGcIvLHC8Z629v2fv9V1r3QuP8f/FPGATMAScAsaBv4EacBu4CvwCnAZ2AxuAZ5gm6AS2AGeB+0CW0+4Cx4GNwBORtYR8cjwF7AQmC2zeZ38AW4GZHhLyTFJUgcsJCTTbb8CLDhLJiDwJfFQigbp9AsxykEhCpAL83AYSWYBEs+XOmSXApTaRyBrWTUqi0mYS/xqI7C6SE3mvk0jwN6poK4AulVVRueeAlfqZ1Jl7Tb53VEhQvyQkyJnYUvD2AgtyxF+kG/vHQWIkFYlqDhJHgWcpjm6g10FiRP9uhAjBS3mq9YSBwAN9SzNIAznNXzX2GLCw6XMplB/rZ3VlC2KngcQU8Bbp4DuJqgpA8/rSAURPw9J2DLSJxB3P+pOxU9lizIkYXgOOaAd8C7ihrcehhnwIkegNkKjbm6ENnDWoUyixe1R+Q3Wiakjsbn0Bob0cC80TsVZcJNaH1Tp/tEqijj2GEcA5z2yKON4P1ImexCTqp9JcNJttPQ58GHGSK+NDiuvkwqnInpxF8mTESWTZl9itkKg2CUAj3ovs6UscuBhxkt7JhSMtkpDnDnpir4rs6bzL6VrEyZcf457n3zeSyLSiu/B8ZE/yhcZ/UIs4dXgWu+l5XppCwU8REmLXPbFnG8pB24j8oONAqO2QGC505phfSrtarjbG1zuNBga7LGB/upxiHa8MRS4c9jxf0zzpVhvwkMhaSPaxIvL7rmextRE/i73qid0f8TvhchqKOH2LH1+3QOKrQNzvI76DLqeNhhbFV4mXA38VICF5uTSQH1MR/9ddjnMNTaPzDSheyUlGSLwciDdkaBrn+JzPGHRbipQPy4BzxuvkOwnBYsM8IjntxWbDJj41zOlrdIga1W9JxC6oOvkSuw6J/blhH32hIFKAfjcE2UV5+MCw/tVAgX6EHYZAkoRvl0Ciz5DgYtsswToD1bqsr4NmaPGcMqx7Ufdowvoc6vNZRABiWGzMiUxfnhTgXDiQg4wozD7VfisqKrExdcoabD8FIMf3Y45F6rnznU52vbrZDrWK/l+/VmzLNcoabNiS4D7MN+ZL2XY552l7f+iJjcFl2gTwAonQVeCapbDhnD9VmHNmvypHO0gcyiOzRbCu5Ks2XkRii0Le1HZtFVIRuKIVu9RTCBF6x/OboMXuaRfb14q0pobMBm9oYfxC5+lrOrvX9N+jOp4O6lD0dPJdPAbTAw8BPC+D2Br7TnMAAAAASUVORK5CYII=">
                         <h1>{{ titulo }}</h1>
+                    </div>
 
-                        <p>Objetivo total: R$ {{ saldo_objetivo }}</p>
-
-                        <p>Data de esperada: {{ data }}</p>
-
-                        <p>Insvestimento por mês: R${{ insvest_mes }}</p>
-
-                        <p>Saldo atual: R$ {{ saldo_atual }}</p>
-
-                        <div class="barra_progresso">
-                            <p>Barra de progresso:</p>
-                            <div class="barra_cheia">
-                                {% for i in barra %}
-                                    <div class="porcentagem"></div>
-                                {% endfor %}
+                    <div class="item-content">
+                        <div class="info">
+                            <span class="material-symbols-outlined">sports_score</span>
+                            <div>
+                                <p class="objetivo">Objetivo total:</p>
+                                <span>R$ {{ saldo_objetivo }}</span>
                             </div>
                         </div>
 
-                        {% if concluido %}
-                        <div class="concluido"> 
-                            Parabens!
+                        <div class="info">
+                            <span class="material-symbols-outlined">balance</span>
+                            <div>
+                                <p class="saldo">Saldo atual:</p>
+                                <span>R$ {{ saldo_atual }}</span>
+                            </div>
                         </div>
-                        {% endif %}
-                        
+
+                        <div class="info">
+                            <span class="material-symbols-outlined">savings</span>
+                            <div>
+                                <p class="invest_mes">Insvestimento por mês:</p>
+                                <span>R$ {{ insvest_mes }}</span>
+                            </div>
+                        </div>
+
+                        <div class="info">
+                            <span class="material-symbols-outlined">event</span>
+                            <div>
+                                <p class="data">Data de esperada:</p>
+                                <span>{{ data }}</span>
+                            </div>
+                        </div>
                     </div>
+                    <div class="barra_progresso">
+                        <p>Barra de progresso:</p>
+                        <div class="barra_cheia">
+                            {% for i in barra %}
+                            <div class="porcentagem"></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% if concluido %}
+                    <div class="concluido">
+                        <img
+                            src="data:image/png;base64,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">
+                    </div>
+                    {% endif %}
+
+                </div>
                 {% endfor %}
             </div>
         </div>

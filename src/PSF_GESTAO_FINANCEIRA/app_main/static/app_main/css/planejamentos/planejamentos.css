@@ -84,10 +84,11 @@ header{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-}
+    padding-bottom: 5px;
+} 
 
 .add-itens{
-    width: 15%;
+    width: 200px;
     height: 40px;
 }
 
@@ -111,6 +112,7 @@ header{
     height: 87%;
     display: grid;
     align-items: center;
+
 }
 
 .pesquisa-itens{
@@ -138,11 +140,13 @@ header{
 
 .itens{
     width: 96%;
-    height: 95%;
+    height: 225px;
     background-color: #b3b3b3;
     justify-self: center;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
+    margin: 5px 0 5px 0;
+    display: grid;
 }
 
 .itens:hover{
@@ -150,7 +154,7 @@ header{
 }
 
 .barra_cheia{
-    width: 65%;
+    width: 500px;
     height: 15px;
     background-color: rgb(126, 126, 126);
     display: flex;
@@ -169,4 +173,59 @@ header{
     flex-direction: column;
     align-items: center;
     gap: 1%;
+    justify-self: center;
+    justify-content: flex-end;
+}
+
+.item-content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    & div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 8px;
+
+        & p{
+            font-size: 18px;
+            font-weight: 400;
+            color: black;
+            
+        }
+
+        & span{
+            font-weight: 700;
+            color: #013d3b;
+        }   
+    }
+}
+
+.concluido{
+    position: fixed;
+    justify-self: right;
+    color: white;
+    
+    & img{
+        width: 60px;
+        height: 60px
+    }
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    gap: 5px;
+    & img{
+        width: 30px;
+        height: 30px;
+    }
 }
