@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Planejamentos | Gestor Financeiro</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamentos.css' %}">
+    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamento.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,6 +16,7 @@
 
     <link rel="shortcut icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABL0lEQVR4nO2TTU4CQRSEPzkDGOcAXII7sIDAGcStHsjByAlYIYtO/GFhvAJLdMcOSNiMeUmRDDh2xjegGyuZ9LzunqrX1TXwB6gBfWAITIEU6Gm+Ms6BFyADFsBMo9XPQKNq50a+Ai6BOjDSOND8U5WT9NWpkSfAm+ol0AauVHe9Aney4wy4EdkcGANNzX/oTlyYyCJDC9hKZKsa3Yntc8FS865Om+p8LpFreW8nuPUK9EQ2kOdL1a/ARe4OOgffJbJtmou17f+CmqK4Epml516j1WvgsSBFRrjJCWxip2woipnsmmnMRF70HwQ939WFJ+mqswd104nk/8cCRUgiPh9FII34fBSBECEpLeC1IZQV8NoQygp4ScK/wK9ccupc24NF0hZ2G+19F1Pv2unxCWJ/qsBOhuknAAAAAElFTkSuQmCC">
+
 </head>
 
 
@@ -50,7 +51,7 @@
     <section class="section-content">
 
         <div class="add-itens">
-            <form action="{% url 'home' %}" method="GET">
+            <form action="{% url 'home' %}" method="GET" >
                 <input type="submit" value="Novo Planejamento" class="add-itens-btn">
             </form>
         </div>
@@ -67,7 +68,8 @@
                 <div class="itens">
 
                     <div class="titulo">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6UlEQVR4nO2Z34tVVRTHP6LNlJAp6FydygR1oP4CHcuHNPVCpU816btvolhDgxDok4zTiyDhj9cekiLUNPUh6Rc0VA/W5PxQn7TpJQs10a46Hlmwrlxu+8c65+5zGcIvLHC8Z629v2fv9V1r3QuP8f/FPGATMAScAsaBv4EacBu4CvwCnAZ2AxuAZ5gm6AS2AGeB+0CW0+4Cx4GNwBORtYR8cjwF7AQmC2zeZ38AW4GZHhLyTFJUgcsJCTTbb8CLDhLJiDwJfFQigbp9AsxykEhCpAL83AYSWYBEs+XOmSXApTaRyBrWTUqi0mYS/xqI7C6SE3mvk0jwN6poK4AulVVRueeAlfqZ1Jl7Tb53VEhQvyQkyJnYUvD2AgtyxF+kG/vHQWIkFYlqDhJHgWcpjm6g10FiRP9uhAjBS3mq9YSBwAN9SzNIAznNXzX2GLCw6XMplB/rZ3VlC2KngcQU8Bbp4DuJqgpA8/rSAURPw9J2DLSJxB3P+pOxU9lizIkYXgOOaAd8C7ihrcehhnwIkegNkKjbm6ENnDWoUyixe1R+Q3Wiakjsbn0Bob0cC80TsVZcJNaH1Tp/tEqijj2GEcA5z2yKON4P1ImexCTqp9JcNJttPQ58GHGSK+NDiuvkwqnInpxF8mTESWTZl9itkKg2CUAj3ovs6UscuBhxkt7JhSMtkpDnDnpir4rs6bzL6VrEyZcf457n3zeSyLSiu/B8ZE/yhcZ/UIs4dXgWu+l5XppCwU8REmLXPbFnG8pB24j8oONAqO2QGC505phfSrtarjbG1zuNBga7LGB/upxiHa8MRS4c9jxf0zzpVhvwkMhaSPaxIvL7rmextRE/i73qid0f8TvhchqKOH2LH1+3QOKrQNzvI76DLqeNhhbFV4mXA38VICF5uTSQH1MR/9ddjnMNTaPzDSheyUlGSLwciDdkaBrn+JzPGHRbipQPy4BzxuvkOwnBYsM8IjntxWbDJj41zOlrdIga1W9JxC6oOvkSuw6J/blhH32hIFKAfjcE2UV5+MCw/tVAgX6EHYZAkoRvl0Ciz5DgYtsswToD1bqsr4NmaPGcMqx7Ufdowvoc6vNZRABiWGzMiUxfnhTgXDiQg4wozD7VfisqKrExdcoabD8FIMf3Y45F6rnznU52vbrZDrWK/l+/VmzLNcoabNiS4D7MN+ZL2XY552l7f+iJjcFl2gTwAonQVeCapbDhnD9VmHNmvypHO0gcyiOzRbCu5Ks2XkRii0Le1HZtFVIRuKIVu9RTCBF6x/OboMXuaRfb14q0pobMBm9oYfxC5+lrOrvX9N+jOp4O6lD0dPJdPAbTAw8BPC+D2Br7TnMAAAAASUVORK5CYII=">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6UlEQVR4nO2Z34tVVRTHP6LNlJAp6FydygR1oP4CHcuHNPVCpU816btvolhDgxDok4zTiyDhj9cekiLUNPUh6Rc0VA/W5PxQn7TpJQs10a46Hlmwrlxu+8c65+5zGcIvLHC8Z629v2fv9V1r3QuP8f/FPGATMAScAsaBv4EacBu4CvwCnAZ2AxuAZ5gm6AS2AGeB+0CW0+4Cx4GNwBORtYR8cjwF7AQmC2zeZ38AW4GZHhLyTFJUgcsJCTTbb8CLDhLJiDwJfFQigbp9AsxykEhCpAL83AYSWYBEs+XOmSXApTaRyBrWTUqi0mYS/xqI7C6SE3mvk0jwN6poK4AulVVRueeAlfqZ1Jl7Tb53VEhQvyQkyJnYUvD2AgtyxF+kG/vHQWIkFYlqDhJHgWcpjm6g10FiRP9uhAjBS3mq9YSBwAN9SzNIAznNXzX2GLCw6XMplB/rZ3VlC2KngcQU8Bbp4DuJqgpA8/rSAURPw9J2DLSJxB3P+pOxU9lizIkYXgOOaAd8C7ihrcehhnwIkegNkKjbm6ENnDWoUyixe1R+Q3Wiakjsbn0Bob0cC80TsVZcJNaH1Tp/tEqijj2GEcA5z2yKON4P1ImexCTqp9JcNJttPQ58GHGSK+NDiuvkwqnInpxF8mTESWTZl9itkKg2CUAj3ovs6UscuBhxkt7JhSMtkpDnDnpir4rs6bzL6VrEyZcf457n3zeSyLSiu/B8ZE/yhcZ/UIs4dXgWu+l5XppCwU8REmLXPbFnG8pB24j8oONAqO2QGC505phfSrtarjbG1zuNBga7LGB/upxiHa8MRS4c9jxf0zzpVhvwkMhaSPaxIvL7rmextRE/i73qid0f8TvhchqKOH2LH1+3QOKrQNzvI76DLqeNhhbFV4mXA38VICF5uTSQH1MR/9ddjnMNTaPzDSheyUlGSLwciDdkaBrn+JzPGHRbipQPy4BzxuvkOwnBYsM8IjntxWbDJj41zOlrdIga1W9JxC6oOvkSuw6J/blhH32hIFKAfjcE2UV5+MCw/tVAgX6EHYZAkoRvl0Ciz5DgYtsswToD1bqsr4NmaPGcMqx7Ufdowvoc6vNZRABiWGzMiUxfnhTgXDiQg4wozD7VfisqKrExdcoabD8FIMf3Y45F6rnznU52vbrZDrWK/l+/VmzLNcoabNiS4D7MN+ZL2XY552l7f+iJjcFl2gTwAonQVeCapbDhnD9VmHNmvypHO0gcyiOzRbCu5Ks2XkRii0Le1HZtFVIRuKIVu9RTCBF6x/OboMXuaRfb14q0pobMBm9oYfxC5+lrOrvX9N+jOp4O6lD0dPJdPAbTAw8BPC+D2Br7TnMAAAAASUVORK5CYII=">
                         <h1>{{ titulo }}</h1>
                     </div>
 

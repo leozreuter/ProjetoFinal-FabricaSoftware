@@ -139,6 +139,7 @@ header{
 }
 
 .itens{
+    display: grid;
     width: 96%;
     height: 225px;
     background-color: #b3b3b3;
@@ -146,7 +147,6 @@ header{
     border-radius: 15px;
     padding: 20px;
     margin: 5px 0 5px 0;
-    display: grid;
 }
 
 .itens:hover{
@@ -198,7 +198,6 @@ header{
             font-size: 18px;
             font-weight: 400;
             color: black;
-            
         }
 
         & span{
@@ -224,6 +223,7 @@ header{
     align-items: center;
     height: 40px;
     gap: 5px;
+    
     & img{
         width: 30px;
         height: 30px;

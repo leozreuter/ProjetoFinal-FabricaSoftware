@@ -10,7 +10,7 @@ def home(request):
 def planejamentos(request):
 
     titulo = "TITULO"
-    saldo_atual = 10000
+    saldo_atual = 1000
     saldo_objetivo = 199999
     concluido = False
 
@@ -21,7 +21,7 @@ def planejamentos(request):
         concluido = True
 
     context = {
-        'range': range(2),
+        'range': range(3),
         'titulo': titulo,
         'saldo_objetivo': saldo_objetivo,
         'data': '12/12/2012',
