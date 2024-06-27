@@ -108,11 +108,18 @@
                     </div>
                     <div class="barra_progresso">
                         <p>Barra de progresso:</p>
+                        <span><p>50%</p></span>
                         <div class="barra_cheia">
                             {% for i in barra %}
                             <div class="porcentagem"></div>
                             {% endfor %}
                         </div>
+                    </div>
+
+                    <div class="edit-item">
+                        <a href="{% url 'editplanej' %}"><span class="material-symbols-outlined">
+                            more_vert
+                            </span></a>
                     </div>
 
                     {% if concluido %}

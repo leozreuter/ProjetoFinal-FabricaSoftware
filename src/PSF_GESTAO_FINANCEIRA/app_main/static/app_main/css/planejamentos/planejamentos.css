@@ -139,7 +139,6 @@ header{
 }
 
 .itens{
-    display: grid;
     width: 96%;
     height: 225px;
     background-color: #b3b3b3;
@@ -147,6 +146,7 @@ header{
     border-radius: 15px;
     padding: 20px;
     margin: 5px 0 5px 0;
+    display: grid;
 }
 
 .itens:hover{
@@ -163,7 +163,7 @@ header{
 }
 
 .porcentagem{
-    width: 0.8%;
+    width: 0.9%;
     height: 80%;
     background-color: #013d3b;
 }
@@ -175,13 +175,6 @@ header{
     gap: 1%;
     justify-self: center;
     justify-content: flex-end;
-
-    & span{
-        font-size: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 .item-content{
@@ -205,6 +198,7 @@ header{
             font-size: 18px;
             font-weight: 400;
             color: black;
+            
         }
 
         & span{
@@ -215,9 +209,9 @@ header{
 }
 
 .concluido{
-    position: absolute;
+    position: static;
     justify-self: right;
-    transform: translateY(125px);
+    color: white;
     
     & img{
         width: 60px;
@@ -237,9 +231,10 @@ header{
 }
 
 .itens:hover .edit-item{
-    position: absolute;
-    display: table;
-    justify-self: right;
+    position: static;
+    display: block;
+    justify-self: left;
+    align-self: normal;
 
     & a{
         color: #4d4d4d;

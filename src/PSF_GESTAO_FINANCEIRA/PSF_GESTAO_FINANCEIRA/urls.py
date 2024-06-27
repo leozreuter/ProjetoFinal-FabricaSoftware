@@ -27,5 +27,6 @@ urlpatterns = [
     path('movimentacoes/', views.movimentacoes , name='movimentacoes'),
     path('configuracoes/', views.configuracoes , name='configuracoes'),
     path('perfil/', views.perfil , name='perfil'),
-    path('logout/', views.logout , name='logout')
+    path('logout/', views.logout , name='logout'),
+    path('edit-planejamento/', views.editplanej , name='editplanej'),  
 ]

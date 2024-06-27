@@ -10,12 +10,13 @@ def home(request):
 def planejamentos(request):
 
     titulo = "TITULO"
-    saldo_atual = 1000
-    saldo_objetivo = 199999
+    saldo_atual = 50
+    saldo_objetivo = 100
     concluido = False
 
     barra = (saldo_atual * 100) // saldo_objetivo
-    
+    print(barra)
+
     if barra >= 100:
         barra = 100
         concluido = True
@@ -79,3 +80,6 @@ def login(request):
             return HttpResponse('Autenticado com sucesso!', status=201)
         else:
             return HttpResponse('Usuario ou Senha inválidos')
+        
+def editplanej(request):
+    return render(request, 'planejamentos/editplanejamentos.html')
