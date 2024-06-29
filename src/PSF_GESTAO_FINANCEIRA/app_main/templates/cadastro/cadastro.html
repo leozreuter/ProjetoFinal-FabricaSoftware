@@ -5,27 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app_main/css/cadastro/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'app_main/css/cadastro/cadastros.css' %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABL0lEQVR4nO2TTU4CQRSEPzkDGOcAXII7sIDAGcStHsjByAlYIYtO/GFhvAJLdMcOSNiMeUmRDDh2xjegGyuZ9LzunqrX1TXwB6gBfWAITIEU6Gm+Ms6BFyADFsBMo9XPQKNq50a+Ai6BOjDSOND8U5WT9NWpkSfAm+ol0AauVHe9Aney4wy4EdkcGANNzX/oTlyYyCJDC9hKZKsa3Yntc8FS865Om+p8LpFreW8nuPUK9EQ2kOdL1a/ARe4OOgffJbJtmou17f+CmqK4Epml516j1WvgsSBFRrjJCWxip2woipnsmmnMRF70HwQ939WFJ+mqswd104nk/8cCRUgiPh9FII34fBSBECEpLeC1IZQV8NoQygp4ScK/wK9ccupc24NF0hZ2G+19F1Pv2unxCWJ/qsBOhuknAAAAAElFTkSuQmCC">
-
-    <title>Document</title>
+    <title>Cadastre-se | Gestor Financeiro</title>
 </head>
 
 <body>
-    <h1>Cadastro</h1>
+    <div class="container-principal">
+        <p>Relize seu cadastro agora:</p>
+        <div class="logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFH0lEQVR4nO2bz69dUxTHd/16BlLDipmKtEpEb9V7Mz8S0RIMiMEjhEkNzA2RqkgkEgOaTkxJpTE24PkDVFOTtvowIRKCq4/69eQjO92X6/bec87aP8869ie5k5f33Xut/b3r7LP2OdeYSqVSqVQqlUqlUqlUKpVKZeAAlwDLwMvAR8AZ4Gf3Oe3+dgi4HdhilEJiYhnxBPClYN4vgMet1iiDxIQGtws4GTD/CWCnUQSJCQlsHzCOEMM54EGjBBLjG9T9wGbEOOxY+40CSIxPQDsjVca8SrnJ9BwS47OBh+wZbXzS942exEiDeTJ1QPbuy/QYEiOtDnu72pXvgCPuc0yg+1xznzIBeCG1ISuCcb8FbpnS7hHGtdcoBjiAJ5JJbAcuNsPTkINGKcBDIXegkons0YfYDE9D1oxCgLuB3whAMtlnHcb7GvjYfW4MMORMqkVrwp3FLXtqdwM/EYhkwg3h2HsCDNkwmeFCjD+4HmtFqN0OfEMEJJPaxi2XIedM/soYT80/7lopwDXAuqDPaiT2JSuWIadN/sqYpbVSgK3Acbqx7sxrJPamHsuQDwPX2bcyZllYKcCSjbNjPvZydr3TNdIt8gsDvUQ+Q1405SqjtVJck3yUbtiNfjSlbUSSgH3Sl8uQf7SFzZhrCvB6R93vwD0zczciSWKLO9boyjHPo5P1lEcntF+mGi9fgiMR2xw+PGf+RqTJ2MeuqVmNaUAkMyb8IvjfZxbE0IiR4K6d9rFrKo6nOn4n3AwJzzfE0YhPYjuAHxMkYTe/XaELH2nPCOFwSyyNNGmbBt2f4BHuPq9g4lbGOLCKjrZVeNsAbfk0DXxvpEqxJwAPeAcSrzImm/YI+N4jD9uTLJmSuOfrJwL3jB09qYxlT+0kj62mD7iN/jHhLbG9tV1dVN7AtulmKqcZHmOctfGavuH6lL2uo18DTk29SnrKlfRB4LamPsOdnJ6VHPDFNkMwlj0S2W6GCnAz8NXMgq2k3DM6jLloT7F3hbvNUAHuWPBtHHcxJYUZDaZcdCQyKNxz6PMtC7hSwow5pvwFPGKGintDYzPD5uttxsxcT5uhAjyHjPHMqWvyyvhf4O7IXhOa8R9TqhnxzFgSPNyJccRRtDLagisV1yS4q4D3yce49GWqLcCSgW0TvBAwCDMsbUGaEkx13105GXjqOu6DGb00ZE733caae71m5Hnq2hszemcIcKfwm/4ecOWUfiQ0pVdm9MoQ133/KljMN+ad/tLdlK5nU14LlFsXFeAp4E+680rLeKMWUySvfmZdWF9dqe57c9HbGQJTxsKDwqwL66sLBrgUeJPu2N9RPCqcYzRjinjPyL2wvroggCuAd+jOhu/xNf+a4ntqO2xD3C3qBwIz7FO2Wwv+sKaRvuhydd/2V7w3RA1CyGANAa4T/mbkU+DaaAF4MkhDPLvvq00PYKCG3Af80dGMd4u/QDZ0Q9xEq+75chNvAZe1jJMn4EILmzU/4Fnf7rtIwGbghrgJX/XtvkMCZuC60Ofj9tI0eV9J2n2rWCAy64IALgfeBu7y0KpYIDLriqFlgcisK4aWBSKzrhhaFojMumJoWSAy64qhZYHIrAtGS6Io0QWjJVGU6ILRkihKdMFoSRQlumC0JIoSXTBaEkWJLhgtiaJEF4yWRFGiC0ZLoijRBaMlUZTogtGSKEp0wWhJFCW6YLQkihJdMFoSRYkuGC2JokQXjJZEUaKrVCqVSqVSqVQqlUqlUqlUjDL+BtYbyLT4I3EIAAAAAElFTkSuQmCC"></div>
 
-    <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
+        <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
 
-        <input type="text" placeholder="Username" name="username">
-        <br>
-        <input type="email" placeholder="Email" name="email">
-        <br>
-        <input type="password" placeholder="Senha" name="senha">
-        <br>
-        <input type="submit" value="Cadastrar">
-        <br>
-    </form>
+            <div class="input-login">
+                
+                <div>
+                    <span>Usuário:</span>
+                    <input type="text" placeholder="Username" name="username">
+                </div>
+
+                <div>
+                    <span>Email:</span>
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+
+                <div>
+                    <span>Senha:</span>
+                    <input type="password" placeholder="Senha" name="senha">
+                </div>
+
+                
+            </div>
+            <div class="btn">
+                <input class="btn-cadastro" type="submit" value="Cadastre-se!">
+            </div>
+            
+
+        </form>
+    </div>
 </body>
 
 </html>
