@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #5BA5A3;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-principal {
+    background-color: #03514F;
+    min-width: 400px;
+    max-width: 500px;
+    min-height: 650px;
+    max-height: 750px;
+    width: 30%;
+    height: 70vh;
+    border-radius: 40px;
+    border: 2pt solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    & p{
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+}
+
+.input-login{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    gap: 8px;
+
+    & input{
+        width: 275px;
+        height: 35px;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    & div{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    & div{
+        height: 10px;
+    }
+}
+
+
+.btn-cadastro{
+    width: 125px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #03514F;
+    cursor: pointer;
+}
+
+.btn-cadastro:hover{
+    background-color: rgb(175, 175, 175);
+}
