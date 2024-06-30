@@ -10,6 +10,7 @@ def home(request):
 
 def planejamentos(request):
 
+    
     titulo = "TITULO"
     saldo_atual = 50
     saldo_objetivo = 100

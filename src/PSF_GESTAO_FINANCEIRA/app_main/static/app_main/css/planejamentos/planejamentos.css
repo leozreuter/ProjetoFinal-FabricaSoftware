@@ -70,8 +70,8 @@ header{
     flex-wrap: nowrap;
     align-items: end;
     width: 80%;
-    height: 80vh;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .container-content{
@@ -84,7 +84,7 @@ header{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 } 
 
 .add-itens{
@@ -139,6 +139,7 @@ header{
 }
 
 .itens{
+    display: grid;
     width: 96%;
     height: 225px;
     background-color: #b3b3b3;
@@ -146,7 +147,6 @@ header{
     border-radius: 15px;
     padding: 20px;
     margin: 5px 0 5px 0;
-    display: grid;
 }
 
 .itens:hover{
@@ -163,7 +163,7 @@ header{
 }
 
 .porcentagem{
-    width: 0.9%;
+    width: 0.8%;
     height: 80%;
     background-color: #013d3b;
 }
@@ -175,6 +175,13 @@ header{
     gap: 1%;
     justify-self: center;
     justify-content: flex-end;
+
+    & span{
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .item-content{
@@ -198,7 +205,6 @@ header{
             font-size: 18px;
             font-weight: 400;
             color: black;
-            
         }
 
         & span{
@@ -209,9 +215,9 @@ header{
 }
 
 .concluido{
-    position: static;
+    position: absolute;
     justify-self: right;
-    color: white;
+    transform: translateY(125px);
     
     & img{
         width: 60px;
@@ -231,10 +237,9 @@ header{
 }
 
 .itens:hover .edit-item{
-    position: static;
-    display: block;
-    justify-self: left;
-    align-self: normal;
+    position: absolute;
+    display: table;
+    justify-self: right;
 
     & a{
         color: #4d4d4d;
