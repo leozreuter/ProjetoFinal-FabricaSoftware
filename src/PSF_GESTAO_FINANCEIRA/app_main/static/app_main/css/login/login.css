@@ -35,9 +35,7 @@ body {
 
 .logo {
     position: relative;
-    width: 150px;
-    height: 150px;
-    background-color: antiquewhite;
+    width: 400px;
 }
 
 .input-login{

@@ -4,7 +4,6 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
 }
 
 body{
@@ -12,8 +11,9 @@ body{
     flex-direction: column;
     width: 100%;
     background-color: #5BA5A3;
-    overflow: visible;
+    overflow: hidden;
     align-items: center;
+    font-family: "Poppins", sans-serif;
 }
 
 header{
@@ -27,10 +27,9 @@ header{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 26px;
-    font-family: "Poppins", sans-serif;
     font-weight: 600;
     & a{
         color: white;
@@ -38,6 +37,10 @@ header{
         align-items: center;
         gap: 3px;
     }
+}
+
+.logo{
+    width: 150px;
 }
 
 

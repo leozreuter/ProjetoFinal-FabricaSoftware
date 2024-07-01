@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Planejamentos | Gestor Financeiro</title>
+    <title>Home | Gestor Financeiro</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamentos.css' %}">
+    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamento.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,16 +15,14 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@34,400,0,0" />
 
     <link rel="shortcut icon"
-        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABL0lEQVR4nO2TTU4CQRSEPzkDGOcAXII7sIDAGcStHsjByAlYIYtO/GFhvAJLdMcOSNiMeUmRDDh2xjegGyuZ9LzunqrX1TXwB6gBfWAITIEU6Gm+Ms6BFyADFsBMo9XPQKNq50a+Ai6BOjDSOND8U5WT9NWpkSfAm+ol0AauVHe9Aney4wy4EdkcGANNzX/oTlyYyCJDC9hKZKsa3Yntc8FS865Om+p8LpFreW8nuPUK9EQ2kOdL1a/ARe4OOgffJbJtmou17f+CmqK4Epml516j1WvgsSBFRrjJCWxip2woipnsmmnMRF70HwQ939WFJ+mqswd104nk/8cCRUgiPh9FII34fBSBECEpLeC1IZQV8NoQygp4ScK/wK9ccupc24NF0hZ2G+19F1Pv2unxCWJ/qsBOhuknAAAAAElFTkSuQmCC">
-
+        href="{% static 'app_main/images/logo_mini.png' %}">
 </head>
-
 
 <body>
 
     <header>
         <ul class="list-header">
-            <li class="item-header"><a href="{% url 'home' %}">pyLa</a></li>
+            <li class="item-header"><a href="{% url 'home' %}"><img class="logo" src="{% static 'app_main/images/logo.png' %}"></a></li>
             <li class="item-header"><a href="{% url 'home' %}"><span class="material-symbols-outlined">home</span>
                     HOME</a>
             </li>
