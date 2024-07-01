@@ -13,6 +13,7 @@ body{
     background-color: #5BA5A3;
     overflow: hidden;
     align-items: center;
+    font-family: "Poppins", sans-serif;
 }
 
 header{
@@ -29,7 +30,6 @@ header{
     justify-content: space-around;
     align-items: center;
     font-size: 26px;
-    font-family: "Poppins", sans-serif;
     font-weight: 600;
     & a{
         color: white;
@@ -99,5 +99,25 @@ header{
     & span{
         background-color: #eeeeee9a;
         border-radius: 15px;
+        padding: 5%;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
     }
 }
+
+.unisc_logo{
+    width: 90%;
+}
+
+.titulo{
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.nomes{
+    font-size: 100%;
+}
+
+
