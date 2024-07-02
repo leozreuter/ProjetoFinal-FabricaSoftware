@@ -40,7 +40,8 @@ header{
 }
 
 .logo{
-    width: 150px;
+    width: 90px;
+    transform: translateY(5px);
 }
 
 .header-icons{
