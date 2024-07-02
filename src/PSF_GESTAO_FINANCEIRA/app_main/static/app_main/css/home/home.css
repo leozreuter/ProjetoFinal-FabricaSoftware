@@ -11,7 +11,6 @@ body{
     flex-direction: column;
     width: 100%;
     background-color: #5BA5A3;
-    overflow: hidden;
     align-items: center;
     font-family: "Poppins", sans-serif;
 }
@@ -76,13 +75,13 @@ header{
     gap: 30px 40px;
     width: 90%;
     height: 80vh;
-    margin-top: 3.5%;
+    margin-top: 2%; 
 }
 
 .container-content{
     background-color: #eeeeee9a;
     width: 50%;
-    height: 78.5vh;
+    height: 80vh;
     border-radius: 15px;
 }
 
@@ -90,9 +89,16 @@ header{
     background-color: #c7c7c79a;
 }
 
+.container-content-second{
+    height: 80vh;
+    width: 50%;
+    display: grid;
+    gap: 5vh;
+}
+
 .second-container{
     background-color: #eeeeee9a;
-    width: 45%;
+    width: 100%;
     height: 40vh;
     border-radius: 15px;
     display: grid;
@@ -120,7 +126,7 @@ header{
 }
 
 .double-span{
-    width: 45%;
+    width: 100%;
     height: 35vh;
     display: grid;
     grid-template-columns: repeat(2, 47.5%);
@@ -151,4 +157,24 @@ header{
 
 .nomes{
     font-size: 100%;
+}
+
+@media (width < 550px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+    }
+    .container-content{
+        width: 90%;
+        height: 50vh;
+    }
+    .second-container{
+        width: 90%;
+        height: 30vh;
+    }
+    .double-span{
+        width: 90%;
+        height: 5vh;
+    }
 }

@@ -17,7 +17,7 @@ def run_django_server():
         python_executable = 'python3'
     
     # Executar o comando para iniciar o servidor Django
-    subprocess.run([python_executable, manage_py, 'runserver'])
+    subprocess.run([python_executable, manage_py, 'runserver', '0.0.0.0:8000'])
 
 if __name__ == "__main__":
     run_django_server()
