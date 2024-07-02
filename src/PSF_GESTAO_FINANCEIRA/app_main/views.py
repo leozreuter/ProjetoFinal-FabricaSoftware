@@ -40,6 +40,9 @@ def planejamentos(request):
 def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html')
 
+def newplanejamento(request):
+    return render(request, 'planejamentos/novoplanejamento.html')
+
 def configuracoes(request):
     return render(request, 'configuracoes/configuracoes.html')
 

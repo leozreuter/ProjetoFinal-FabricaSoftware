@@ -86,11 +86,37 @@ header{
     border-radius: 15px;
 }
 
+.container-content:hover{
+    background-color: #c7c7c79a;
+}
+
 .second-container{
     background-color: #eeeeee9a;
     width: 45%;
     height: 40vh;
     border-radius: 15px;
+    display: grid;
+    padding: 0 4%;
+    & div{
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+        color: #03514F;
+    }
+}
+
+.frase{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.autor{
+    font-size: 26px;
+    font-weight: 300;
+}
+
+.second-container:hover{
+    background-color: #c7c7c79a;
 }
 
 .double-span{
@@ -109,6 +135,9 @@ header{
         justify-items: center;
         text-align: center;
     }
+    & span:hover{
+        background-color: #c7c7c79a;
+    }
 }
 
 .unisc_logo{
@@ -123,5 +152,3 @@ header{
 .nomes{
     font-size: 100%;
 }
-
-

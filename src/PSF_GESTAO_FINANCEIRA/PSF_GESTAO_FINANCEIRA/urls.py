@@ -29,4 +29,5 @@ urlpatterns = [
     path('perfil/', views.perfil , name='perfil'),
     path('logout/', views.logout , name='logout'),
     path('edit-planejamento/', views.editplanej , name='editplanej'),  
+    path('newplanejamento/', views.newplanejamento , name='newplanejamento'),
 ]

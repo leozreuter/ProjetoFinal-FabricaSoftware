@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Home | Gestor Financeiro</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamento.css' %}">
+    <link rel="stylesheet" href="{% static 'app_main/css/planejamentos/planejamentos.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -49,7 +49,7 @@
     <section class="section-content">
 
         <div class="add-itens">
-            <form action="{% url 'home' %}" method="GET" >
+            <form action="{% url 'newplanejamento' %}" method="GET" >
                 <input type="submit" value="Novo Planejamento" class="add-itens-btn">
             </form>
         </div>

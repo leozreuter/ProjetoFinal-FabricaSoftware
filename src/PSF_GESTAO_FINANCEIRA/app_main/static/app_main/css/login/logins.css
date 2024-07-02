@@ -29,13 +29,13 @@ body {
     border: 2pt solid white;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
 }
 
 .logo {
     position: relative;
-    width: 400px;
+    width: 300px;
 }
 
 .input-login{
