@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from app_main import views
 
 urlpatterns = [
@@ -27,7 +28,10 @@ urlpatterns = [
     path('movimentacoes/', views.movimentacoes , name='movimentacoes'),
     path('configuracoes/', views.configuracoes , name='configuracoes'),
     path('perfil/', views.perfil , name='perfil'),
-    path('logout/', views.logout , name='logout'),
+    path('logout/', views.logout_view , name='logout'),
     path('edit-planejamento/', views.editplanej , name='editplanej'),  
     path('newplanejamento/', views.newplanejamento , name='newplanejamento'),
+
+    #  QUALQUER URL QUE NÃO EXISTA REDIRECIONA PARA A HOME
+    path('<path:qualquer_caminho>', RedirectView.as_view(url='/'))
 ]

@@ -1,5 +1,6 @@
+from pyexpat.errors import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -17,7 +18,11 @@ class Autenticacao:
             user = User.objects.filter(username=username).first() or User.objects.filter(email=email).first()
 
             if user:
-                return HttpResponse('Já existe usuário cadastrado com este usuário ou Email', status=409)
+                cad_falho = True
+                context = {
+                    'cad_falho': cad_falho,
+                }
+                return render(request, 'cadastro/cadastro.html', context)
             
             novoUser = User.objects.create_user(username=username, email=email, password=senha)
             novoUser.save()
@@ -37,8 +42,12 @@ class Autenticacao:
             user = authenticate(username=username, password=senha)
 
             if user:
-                #login(request, user)
-
-                return HttpResponse('Autenticado com sucesso!', status=201)
+                login(request, user)
+                request.session['username'] = username
+                return redirect('home')
             else:
-                return HttpResponse('Usuario ou Senha inválidos')
+                login_falho = True
+                context = {
+                    'login_falho': login_falho,
+                }
+                return render(request, 'login/login.html', context)

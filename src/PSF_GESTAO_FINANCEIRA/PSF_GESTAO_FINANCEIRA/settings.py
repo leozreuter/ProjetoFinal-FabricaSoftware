@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,11 +26,10 @@ SECRET_KEY = 'django-insecure-!f03nlqua%vv^)+)q&!o2g2u2@s#zjm$)*a5lc_s%eylbgzg!d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.104']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.104', '192.168.0.105']
 
 
-# Application definition
-
+# APLICATIVOS DO DJANGO
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -71,7 +71,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PSF_GESTAO_FINANCEIRA.wsgi.application'
 
 
-# Database
+# BANCO DE DADOS PADRÃO DO DJANGO
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
@@ -82,7 +82,7 @@ DATABASES = {
 }
 
 
-# Password validation
+# VALIDAÇÃO DE SENHAS PADRÃO DO DJANGO
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -130,3 +130,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# PARTE DE SESSÃO DE USUÁRIO
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Usa o banco de dados para armazenar sessões
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_AGE = 86400  # 1 DIA
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

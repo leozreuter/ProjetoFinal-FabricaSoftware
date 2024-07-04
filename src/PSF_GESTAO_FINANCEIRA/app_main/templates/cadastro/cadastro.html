@@ -26,7 +26,7 @@
         <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
 
             <div class="input-login">
-                
+
                 <div>
                     <span>Usuário:</span>
                     <input type="text" placeholder="Username" name="username">
@@ -41,6 +41,10 @@
                     <span>Senha:</span>
                     <input type="password" placeholder="Senha" name="senha">
                 </div>
+
+                {% if cad_falho %}
+                    <p class="cad_falho">deu ruim paizao, já tem esse cadastrado</p>
+                {% endif %}
 
                 
             </div>

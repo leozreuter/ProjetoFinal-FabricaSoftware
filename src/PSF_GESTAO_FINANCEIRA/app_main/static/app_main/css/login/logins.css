@@ -45,6 +45,7 @@ body {
     font-weight: 600;
     font-size: 16px;
     gap: 8px;
+    align-items: center;
 
     & input{
         width: 275px;
@@ -112,4 +113,10 @@ body {
     & a{
         color: white;
     }
+}
+
+.login_falho{
+    font-size: 12px;
+    color: red;
+    font-weight: 400;
 }

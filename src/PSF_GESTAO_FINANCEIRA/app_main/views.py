@@ -1,12 +1,14 @@
-from django.shortcuts import render
+from pyexpat.errors import messages
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,  logout
 from .autenticacao import Autenticacao
 
 # Create your views here.
 def home(request):
-    return render(request, 'home/home.html')
+    username = request.session.get('username', 'visitante')
+    return render(request, 'home/home.html',{'username': username})
 
 def planejamentos(request):
 
@@ -17,7 +19,6 @@ def planejamentos(request):
     concluido = False
 
     barra = (saldo_atual * 100) // saldo_objetivo
-    print(barra)
 
     if barra >= 100:
         barra = 100
@@ -47,9 +48,8 @@ def configuracoes(request):
     return render(request, 'configuracoes/configuracoes.html')
 
 def perfil(request):
-    return render(request, 'home/home.html')
-
-def logout(request):
+    if not request.user.is_authenticated:
+        return redirect('login')  # Redirecione para a página de login
     return render(request, 'home/home.html')
 
 def cadastro(request):
@@ -62,3 +62,7 @@ def login(request):
         
 def editplanej(request):
     return render(request, 'planejamentos/editplanejamentos.html')
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'login/login.html')  # Redirecione para a página de login ou outra página
