@@ -4,15 +4,23 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,  logout
 from .autenticacao import Autenticacao
+from .forms import PlanejamentoForm
+from .planejamentos import Planejamentos
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def home(request):
     username = request.session.get('username', 'visitante')
     return render(request, 'home/home.html',{'username': username})
 
+@login_required
 def planejamentos(request):
 
-    
+    planejamentos = Planejamentos(request.user)
+    return render(request, 'planejamentos/planejamentos.html', {'planejamentos': planejamentos.listar_planejamentos()})
+
+    """
     titulo = "TITULO"
     saldo_atual = 50
     saldo_objetivo = 100
@@ -33,16 +41,28 @@ def planejamentos(request):
         'saldo_atual': saldo_atual,
         'barra': range(barra),
         'concluido': concluido
+        
     }
 
 
     return render(request, 'planejamentos/planejamentos.html', context)
+    """
 
 def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html')
 
+@login_required
 def newplanejamento(request):
-    return render(request, 'planejamentos/novoplanejamento.html')
+    if request.method == 'POST':
+        form = PlanejamentoForm(request.POST)
+        planejamentos = Planejamentos(request.user)
+        if planejamentos.criar_planejamento(form):
+            return redirect('planejamentos')
+        else:
+            print(form.errors)
+    else:
+        form = PlanejamentoForm()
+    return render(request, 'planejamentos/novoplanejamento.html', {'form': form})
 
 def configuracoes(request):
     return render(request, 'configuracoes/configuracoes.html')
@@ -59,7 +79,8 @@ def cadastro(request):
 def login(request):
     cad = Autenticacao()
     return cad.login(request)
-        
+
+@login_required
 def editplanej(request):
     return render(request, 'planejamentos/editplanejamentos.html')
 

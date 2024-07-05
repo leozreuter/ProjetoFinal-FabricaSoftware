@@ -42,26 +42,23 @@
             </li>
         </ul>
     </header>
-    <form action="{% url 'home' %}" method="GET">
+    <form action="{% url 'newplanejamento' %}" method="POST">
+        {% csrf_token %}
         <section class="section-content">
-
             <div class="container-content">
-                Titulo
-                <input type="text">
-
-                Objetivo
-                <input type="number">
-
-                Invest mes
-                <input type="number">
-
-                Data
-                <input type="date">
-
-
-
+                <label for="id_titulo">Título</label>
+                <input type="text" id="id_titulo" name="titulo">
+    
+                <label for="id_objetivo">Objetivo</label>
+                <input type="number" id="id_objetivo" name="objetivo">
+    
+                <label for="id_investimento_mensal">Investimento Mensal</label>
+                <input type="number" id="id_investimento_mensal" name="investimento_mensal">
+    
+                <label for="id_data">Data</label>
+                <input type="date" id="id_data" name="data">
             </div>
-
+    
             <div class="save">
                 <input type="submit" value="SALVAR" class="save-btn">
             </div>
