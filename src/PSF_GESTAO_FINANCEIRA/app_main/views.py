@@ -16,9 +16,13 @@ def home(request):
 
 @login_required
 def planejamentos(request):
+    planejamento_obj = Planejamentos(request.user)
+    lista_planejamentos = planejamento_obj.listar_planejamentos()
 
-    planejamentos = Planejamentos(request.user)
-    return render(request, 'planejamentos/planejamentos.html', {'planejamentos': planejamentos.listar_planejamentos()})
+    for planejamento in lista_planejamentos:
+        planejamento.barra_iterable = range(planejamento.barra)
+
+    return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos})
 
     """
     titulo = "TITULO"

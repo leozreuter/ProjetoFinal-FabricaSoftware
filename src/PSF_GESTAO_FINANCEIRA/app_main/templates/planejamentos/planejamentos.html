@@ -106,9 +106,9 @@
                     </div>
                     <div class="barra_progresso">
                         <p>Barra de progresso:</p>
-                        <span><p>50%</p></span>
+                        <span><p>{{ planejamento.barra }}%</p></span>
                         <div class="barra_cheia">
-                            {% for i in barra %}
+                            {% for i in planejamento.barra_iterable %}
                             <div class="porcentagem"></div>
                             {% endfor %}
                         </div>
