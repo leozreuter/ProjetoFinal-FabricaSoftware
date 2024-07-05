@@ -9,11 +9,6 @@ from .planejamentos import Planejamentos
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-def home(request):
-    username = request.session.get('username', 'visitante')
-    return render(request, 'home/home.html',{'username': username})
-
 @login_required
 def planejamentos(request):
     planejamento_obj = Planejamentos(request.user)
@@ -23,34 +18,6 @@ def planejamentos(request):
         planejamento.barra_iterable = range(planejamento.barra)
 
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos})
-
-    """
-    titulo = "TITULO"
-    saldo_atual = 50
-    saldo_objetivo = 100
-    concluido = False
-
-    barra = (saldo_atual * 100) // saldo_objetivo
-
-    if barra >= 100:
-        barra = 100
-        concluido = True
-
-    context = {
-        'range': range(3),
-        'titulo': titulo,
-        'saldo_objetivo': saldo_objetivo,
-        'data': '12/12/2012',
-        'insvest_mes': '123,45',
-        'saldo_atual': saldo_atual,
-        'barra': range(barra),
-        'concluido': concluido
-        
-    }
-
-
-    return render(request, 'planejamentos/planejamentos.html', context)
-    """
 
 def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html')
@@ -84,9 +51,20 @@ def login(request):
     cad = Autenticacao()
     return cad.login(request)
 
+# ----------------------------------------------------------------------------------------------------------------------------- #
+# HOME
+
 @login_required
 def editplanej(request):
     return render(request, 'planejamentos/editplanejamentos.html')
+
+
+
+# ----------------------------------------------------------------------------------------------------------------------------- #
+# HOME
+def home(request):
+    username = request.session.get('username', 'visitante')
+    return render(request, 'home/home.html',{'username': username})
 
 def logout_view(request):
     logout(request)

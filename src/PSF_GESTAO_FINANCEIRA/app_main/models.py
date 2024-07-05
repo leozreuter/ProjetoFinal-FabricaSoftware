@@ -9,15 +9,24 @@ class Planejamento(models.Model): #Depois de fazer o model tem que realizar a mi
     data = models.DateField()
     saldo_atual = models.DecimalField(max_digits=10, decimal_places=2, default=200.00)
     concluido = models.BooleanField(default=False)
+    
 
     @property
     def barra(self):
         barra = int((self.saldo_atual * 100) // self.objetivo)
         if barra >= 100:
             barra = 100
-            concluido = True
-        
+            self.concluidoSet = True
+
         return barra
+    
+    @property
+    def concluidoSet(self):
+        return self.concluido
+    
+    @concluidoSet.setter
+    def concluidoSet(self, valor):
+        self.concluido = valor
 
     def __str__(self):
         return self.titulo
