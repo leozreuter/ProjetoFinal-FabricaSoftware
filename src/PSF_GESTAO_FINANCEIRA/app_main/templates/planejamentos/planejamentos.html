@@ -68,7 +68,7 @@
                     <div class="titulo">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6UlEQVR4nO2Z34tVVRTHP6LNlJAp6FydygR1oP4CHcuHNPVCpU816btvolhDgxDok4zTiyDhj9cekiLUNPUh6Rc0VA/W5PxQn7TpJQs10a46Hlmwrlxu+8c65+5zGcIvLHC8Z629v2fv9V1r3QuP8f/FPGATMAScAsaBv4EacBu4CvwCnAZ2AxuAZ5gm6AS2AGeB+0CW0+4Cx4GNwBORtYR8cjwF7AQmC2zeZ38AW4GZHhLyTFJUgcsJCTTbb8CLDhLJiDwJfFQigbp9AsxykEhCpAL83AYSWYBEs+XOmSXApTaRyBrWTUqi0mYS/xqI7C6SE3mvk0jwN6poK4AulVVRueeAlfqZ1Jl7Tb53VEhQvyQkyJnYUvD2AgtyxF+kG/vHQWIkFYlqDhJHgWcpjm6g10FiRP9uhAjBS3mq9YSBwAN9SzNIAznNXzX2GLCw6XMplB/rZ3VlC2KngcQU8Bbp4DuJqgpA8/rSAURPw9J2DLSJxB3P+pOxU9lizIkYXgOOaAd8C7ihrcehhnwIkegNkKjbm6ENnDWoUyixe1R+Q3Wiakjsbn0Bob0cC80TsVZcJNaH1Tp/tEqijj2GEcA5z2yKON4P1ImexCTqp9JcNJttPQ58GHGSK+NDiuvkwqnInpxF8mTESWTZl9itkKg2CUAj3ovs6UscuBhxkt7JhSMtkpDnDnpir4rs6bzL6VrEyZcf457n3zeSyLSiu/B8ZE/yhcZ/UIs4dXgWu+l5XppCwU8REmLXPbFnG8pB24j8oONAqO2QGC505phfSrtarjbG1zuNBga7LGB/upxiHa8MRS4c9jxf0zzpVhvwkMhaSPaxIvL7rmextRE/i73qid0f8TvhchqKOH2LH1+3QOKrQNzvI76DLqeNhhbFV4mXA38VICF5uTSQH1MR/9ddjnMNTaPzDSheyUlGSLwciDdkaBrn+JzPGHRbipQPy4BzxuvkOwnBYsM8IjntxWbDJj41zOlrdIga1W9JxC6oOvkSuw6J/blhH32hIFKAfjcE2UV5+MCw/tVAgX6EHYZAkoRvl0Ciz5DgYtsswToD1bqsr4NmaPGcMqx7Ufdowvoc6vNZRABiWGzMiUxfnhTgXDiQg4wozD7VfisqKrExdcoabD8FIMf3Y45F6rnznU52vbrZDrWK/l+/VmzLNcoabNiS4D7MN+ZL2XY552l7f+iJjcFl2gTwAonQVeCapbDhnD9VmHNmvypHO0gcyiOzRbCu5Ks2XkRii0Le1HZtFVIRuKIVu9RTCBF6x/OboMXuaRfb14q0pobMBm9oYfxC5+lrOrvX9N+jOp4O6lD0dPJdPAbTAw8BPC+D2Br7TnMAAAAASUVORK5CYII=">
-                        <h1>{{ titulo }}</h1>
+                        <h1>{{ planejamento.titulo }}</h1>
                     </div>
 
                     <div class="item-content">
@@ -76,7 +76,7 @@
                             <span class="material-symbols-outlined">sports_score</span>
                             <div>
                                 <p class="objetivo">Objetivo total:</p>
-                                <span>R$ {{ saldo_objetivo }}</span>
+                                <span>R$ {{ planejamento.objetivo }}</span>
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@
                             <span class="material-symbols-outlined">balance</span>
                             <div>
                                 <p class="saldo">Saldo atual:</p>
-                                <span>R$ {{ saldo_atual }}</span>
+                                <span>R$ {{ planejamento.saldo_atual }}</span>
                             </div>
                         </div>
 
@@ -92,7 +92,7 @@
                             <span class="material-symbols-outlined">savings</span>
                             <div>
                                 <p class="invest_mes">Insvestimento por mês:</p>
-                                <span>R$ {{ insvest_mes }}</span>
+                                <span>R$ {{ planejamento.investimento_mensal }}</span>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@
                             <span class="material-symbols-outlined">event</span>
                             <div>
                                 <p class="data">Data de esperada:</p>
-                                <span>{{ data }}</span>
+                                <span>{{ planejamento.data }}</span>
                             </div>
                         </div>
                     </div>
