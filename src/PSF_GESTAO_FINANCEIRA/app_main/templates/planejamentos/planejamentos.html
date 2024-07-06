@@ -58,10 +58,14 @@
 
             <div class="pesquisa-itens">
                 <input type="text" placeholder="Digite aqui">
-                <a href="{}"><span class="material-symbols-outlined">search</span></a>
+                <a href="{% url 'planejamentos' %}"><span class="material-symbols-outlined">search</span></a>
             </div>
 
             <div class="container-itens">
+                {% if verificaVazio %}
+                    <div class="semPlanejamentos"> Você não tem nenhum planejamento! Crie e acompanhe! </div>
+                {% endif %}
+
                 {% for planejamento in planejamentos %}
                 <div class="itens">
 

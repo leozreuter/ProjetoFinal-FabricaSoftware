@@ -251,3 +251,10 @@ header{
 .edit-item{
     display: none;
 }
+
+.semPlanejamentos{
+    height: 15vd;
+    font-size: 20px;
+    align-self: center;
+    justify-self: center;
+}
