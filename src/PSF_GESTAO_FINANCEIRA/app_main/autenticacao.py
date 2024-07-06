@@ -6,7 +6,6 @@ from django.http import HttpResponse
 
 class Autenticacao:
 
-    #@staticmethod
     def cadastro(self, request):
         if request.method == 'GET':
             return render(request, 'cadastro/cadastro.html')
@@ -29,9 +28,6 @@ class Autenticacao:
 
             return redirect('login')  #Redireciona para a a tela de login
 
-
-
-    #@staticmethod  
     def login(self, request):
         if request.method == 'GET':
             return render(request, 'login/login.html')
