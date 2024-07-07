@@ -7,7 +7,7 @@ from .autenticacao import Autenticacao
 from .forms import PlanejamentoForm
 from .planejamentos import Planejamentos
 from django.contrib.auth.decorators import login_required
-
+import random
 
 
 
@@ -64,8 +64,27 @@ def editplanej(request):
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # HOME
 def home(request):
-    username = request.session.get('username', 'visitante')
-    return render(request, 'home/home.html',{'username': username})
+    # Criado um dicionário com as duas chaves (frase e autor), assim conseguimos usar a biblioteca random para selecionar uma frase aleatoria
+    frases = [
+        {"frase": "Uma jornada de mil quilômetros precisa começar com um simples passo.", "autor": "Lao Tzu"},
+        {"frase": "A riqueza é consequência de trabalho e poupança.", "autor": "Benjamin Franklin"},
+        {"frase": "Jamais gaste seu dinheiro antes de você possuí-lo.", "autor": "Thomas Jefferson"},
+        {"frase": "Sucesso é a soma de pequenos esforços, repetidos o tempo todo.", "autor": "Robert Collier"},
+        {"frase": "Dinheiro é apenas uma ferramenta. Ele irá levá-lo onde quiser, mas não vai substituí-lo como motorista.", "autor": "Ayn Rand"},
+        {"frase": "Cuidado com as pequenas despesas, um pequeno vazamento afundará um grande navio.", "autor": "Benjamin Franklin"},
+        {"frase": "As pessoas gastam um dinheiro que não têm, para comprar coisas de que elas não precisam, para impressionar pessoas de quem não gostam.", "autor": "Will Rogers"},
+    ]
+
+    # Seleciona uma frase aleatoria
+    frase_escolhida = random.choice(frases)
+
+    # Aqui tem outro dicionario que usamos para passar as variaveis pra o HTML
+    contexto = {
+        "username": request.session.get('username', 'visitante'),
+        "frase": frase_escolhida["frase"],
+        "autor": frase_escolhida["autor"]
+    }
+    return render(request, 'home/home.html', contexto)
 
 def cadastro(request):
     cad = Autenticacao()
