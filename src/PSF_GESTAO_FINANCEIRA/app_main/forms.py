@@ -6,4 +6,4 @@ class PlanejamentoForm(forms.ModelForm):
         model = Planejamento
         fields = ['titulo', 'objetivo', 'investimento_mensal', 'data']
 
-#Os forms servem pra facilitar o envio de formulários mais facil para as models
+# Os forms servem pra facilitar o envio de formulários mais facil para as models
