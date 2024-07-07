@@ -14,10 +14,6 @@ from django.contrib.auth.decorators import login_required
 def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html')
 
-
-
-
-
 @login_required # Redirecione para a página de login
 def configuracoes(request):
     return render(request, 'configuracoes/configuracoes.html')
@@ -46,7 +42,6 @@ def planejamentos(request):
 
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
 
-
 # NOVO PLANEJAMENTOS
 @login_required # Redirecione para a página de login
 def newplanejamento(request):
@@ -61,20 +56,16 @@ def newplanejamento(request):
         form = PlanejamentoForm()
     return render(request, 'planejamentos/novoplanejamento.html', {'form': form})
 
-
 # EDIT PLANEJAMENTOS
 @login_required # Redirecione para a página de login
 def editplanej(request):
     return render(request, 'planejamentos/editplanejamentos.html')
-
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # HOME
 def home(request):
     username = request.session.get('username', 'visitante')
     return render(request, 'home/home.html',{'username': username})
-
-
 
 def cadastro(request):
     cad = Autenticacao()
