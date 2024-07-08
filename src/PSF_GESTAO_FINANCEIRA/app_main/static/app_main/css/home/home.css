@@ -83,6 +83,12 @@ header{
     width: 50%;
     height: 80vh;
     border-radius: 15px;
+    padding: 3%;
+    display: grid;
+}
+
+.bemvindo{
+    justify-self: center;
 }
 
 .container-content:hover{
@@ -95,6 +101,8 @@ header{
     display: grid;
     gap: 20px;
 }
+
+
 
 .second-container{
     background-color: #eeeeee9a;

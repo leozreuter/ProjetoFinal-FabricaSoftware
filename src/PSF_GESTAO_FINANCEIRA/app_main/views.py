@@ -11,23 +11,23 @@ import random
 
 
 
-def movimentacoes(request):
+def movimentacoes(request): # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
     return render(request, 'movimentacoes/movimentacoes.html')
 
-@login_required # Redirecione para a página de login
+@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def configuracoes(request):
     return render(request, 'configuracoes/configuracoes.html')
 
 def perfil(request):
     if not request.user.is_authenticated:
-        return redirect('login')  # Redirecione para a página de login
+        return redirect('login')  # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
     return render(request, 'home/home.html')
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # PLANEJAMENTOS
 
 # LISTAR PLANEJAMENTOS
-@login_required # Redirecione para a página de login
+@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def planejamentos(request):
     planejamento_obj = Planejamentos(request.user)
     lista_planejamentos = planejamento_obj.listar_planejamentos()
@@ -43,7 +43,7 @@ def planejamentos(request):
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
 
 # NOVO PLANEJAMENTOS
-@login_required # Redirecione para a página de login
+@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def newplanejamento(request):
     if request.method == 'POST':
         form = PlanejamentoForm(request.POST)
@@ -57,7 +57,7 @@ def newplanejamento(request):
     return render(request, 'planejamentos/novoplanejamento.html', {'form': form})
 
 # EDIT PLANEJAMENTOS
-@login_required # Redirecione para a página de login
+@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def editplanej(request):
     return render(request, 'planejamentos/editplanejamentos.html')
 
@@ -80,7 +80,7 @@ def home(request):
 
     # Aqui tem outro dicionario que usamos para passar as variaveis pra o HTML
     contexto = {
-        "username": request.session.get('username', 'visitante'),
+        "username": request.session.get('username', 'Visitante'),
         "frase": frase_escolhida["frase"],
         "autor": frase_escolhida["autor"]
     }

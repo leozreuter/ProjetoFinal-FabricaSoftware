@@ -7,7 +7,7 @@ class Planejamento(models.Model): #Depois de fazer o model tem que realizar a mi
     objetivo = models.DecimalField(max_digits=10, decimal_places=2)
     investimento_mensal = models.DecimalField(max_digits=10, decimal_places=2)
     data = models.DateField()
-    saldo_atual = models.DecimalField(max_digits=10, decimal_places=2, default=200.00)
+    saldo_atual = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     concluido = models.BooleanField(default=False)
     
 
