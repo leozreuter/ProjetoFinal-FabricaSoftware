@@ -114,3 +114,29 @@ header{
     font-size: 110%;
     font-weight: 600;
 }
+
+.save-btn:hover{
+    background-color: #004442;
+}
+
+.delete{
+    align-self: end;
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.delete-btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 14px;
+    border: none;
+    background-color: #ff2828;
+    color: white;
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.delete-btn:hover{
+    background-color: #ff0000;
+}

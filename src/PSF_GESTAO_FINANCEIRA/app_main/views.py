@@ -59,7 +59,18 @@ def newplanejamento(request):
 # EDIT PLANEJAMENTOS
 @login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def editplanej(request):
-    return render(request, 'planejamentos/editplanejamentos.html')
+    if request.method == 'POST':
+        form = PlanejamentoForm(request.POST)
+        planejamentos = Planejamentos(request.user)
+
+    context = {
+        'objetivo': '112312',
+        'saldo_atual': '21312',
+        'titulo': 'titulo teste',
+        'data': '12/12/2012'
+    }
+
+    return render(request, 'planejamentos/editplanejamentos.html', context)
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # HOME
