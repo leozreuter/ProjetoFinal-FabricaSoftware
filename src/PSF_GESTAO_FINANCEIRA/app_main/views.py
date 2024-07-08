@@ -45,7 +45,7 @@ def planejamentos(request):
 # NOVO PLANEJAMENTOS
 @login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
 def newplanejamento(request):
-    if request.method == 'POST':
+    if request.method == 'POST':  # Verifica se o método que está chamando é postagem de informações
         form = PlanejamentoForm(request.POST)
         planejamentos = Planejamentos(request.user)
         if planejamentos.criar_planejamento(form):

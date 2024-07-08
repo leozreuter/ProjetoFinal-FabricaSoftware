@@ -70,7 +70,7 @@ header{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -139,4 +139,18 @@ header{
 
 .delete-btn:hover{
     background-color: #ff0000;
+}
+
+.addons{
+    display: flex; 
+    gap: 10px;
+}
+
+.titulo{
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    & img{
+        width: 40px;
+    }
 }
