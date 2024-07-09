@@ -84,6 +84,11 @@ def home(request):
         {"frase": "Dinheiro é apenas uma ferramenta. Ele irá levá-lo onde quiser, mas não vai substituí-lo como motorista.", "autor": "Ayn Rand"},
         {"frase": "Cuidado com as pequenas despesas, um pequeno vazamento afundará um grande navio.", "autor": "Benjamin Franklin"},
         {"frase": "As pessoas gastam um dinheiro que não têm, para comprar coisas de que elas não precisam, para impressionar pessoas de quem não gostam.", "autor": "Will Rogers"},
+        {"frase": "A educação formal vai fazer você ganhar a vida. A autoeducação vai fazer você alcançar uma fortuna..", "autor": "Jim Rohn"},
+        {"frase": "O único lugar em que sucesso vem antes de trabalho é no dicionário.", "autor": "Vidal Sassoon"},
+        {"frase": " dinheiro é um mestre terrível, mas um excelente servo.", "autor": "P. T. Barnum"},
+        {"frase": "A maneira mais rápida de ganhar dinheiro é resolver um problema. Quanto maior for o problema a resolver, mais dinheiro que você vai ganhar.", "autor": "Steve Siebold"},
+        
     ]
 
     # Seleciona uma frase aleatoria
