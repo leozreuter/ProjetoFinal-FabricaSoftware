@@ -22,3 +22,11 @@ class Planejamentos:
             form.save()
             return True
         return False
+    
+    def excluir_planejamento(self, planejamento_id):
+        try:
+            planejamento = Planejamento.objects.get(id=planejamento_id, usuario=self.user)
+            planejamento.delete()
+            return True
+        except Planejamento.DoesNotExist:
+            return False

@@ -1,12 +1,14 @@
-from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, logout
-from .autenticacao import Autenticacao
-from .forms import PlanejamentoForm
-from .planejamentos import Planejamentos
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, logout
+from django.contrib.auth.models import User
+from .planejamentos import Planejamentos
+from .autenticacao import Autenticacao
+from django.http import HttpResponse
+from django.contrib import messages
+from .forms import PlanejamentoForm
 import random
+from.models import Planejamento
 
 def movimentacoes(request):
     """
@@ -96,28 +98,38 @@ def newplanejamento(request):
     return render(request, 'planejamentos/novoplanejamento.html', {'form': form})
 
 @login_required
-def editplanej(request):
-    """
-    Edita um planejamento existente. Renderiza a página de edição de planejamento.
-
-    Parametros:
-        request: A solicitação HTTP recebida.
-
-    Returns:
-        HttpResponse: A resposta HTTP contendo a página de edição de planejamento.
-    """
+def editplanej(request, planejamento_id):
+    planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
+    
     if request.method == 'POST':
-        form = PlanejamentoForm(request.POST)
-        planejamentos = Planejamentos(request.user)
+        form = PlanejamentoForm(request.POST, instance=planejamento)
+        if form.is_valid():
+            if planejamentos.editar_planejamento(planejamento_id, form):
+                return redirect('planejamentos')  #Redireciona para a página de planejamentos após a edição
+            else:
+                form = PlanejamentoForm(instance=planejamento)
+                messages.error(request, 'Houve um problema ao salvar o planejamento. Verifique os dados e tente novamente.')
+    else:
+        form = PlanejamentoForm(instance=planejamento)
 
     context = {
-        'objetivo': '112312',
-        'saldo_atual': '21312',
-        'titulo': 'titulo teste',
-        'data': '12/12/2012'
+        'form': form,
+        'planejamento': planejamento,
     }
 
     return render(request, 'planejamentos/editplanejamentos.html', context)
+
+def excluirplanej(request, planejamento_id):
+    #Obtenha o planejamento ou retorne um erro 404 se não existir
+    planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
+
+    if request.method == 'POST':
+        #Se o método da requisição for POST, significa que o usuário confirmou a exclusão
+        planejamento.delete()  #Exclua o planejamento do banco de dados
+        return redirect('planejamentos')  #Redirecione para a página de planejamentos após a exclusão
+
+    #Se não for POST, renderize o template de confirmação de exclusão
+    return render(request, 'planejamentos/confirmar_exclusao.html', {'planejamento': planejamento})
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # HOME

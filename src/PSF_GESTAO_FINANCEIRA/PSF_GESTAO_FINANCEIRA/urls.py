@@ -29,7 +29,7 @@ urlpatterns = [
     path('configuracoes/', views.configuracoes , name='configuracoes'),
     path('perfil/', views.perfil , name='perfil'),
     path('logout/', views.logout_view , name='logout'),
-    path('edit-planejamento/', views.editplanej , name='editplanej'),  
+    path('edit-planejamento/<int:planejamento_id>/', views.editplanej , name='editplanej'),  
     path('newplanejamento/', views.newplanejamento , name='newplanejamento'),
 
     # QUALQUER URL QUE NÃO EXISTA REDIRECIONA PARA A HOME
