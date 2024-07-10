@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Configuracões | Gestor Financeiro</title>
+    <title>{{ username }} | Gestor Financeiro</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app_main/css/configuracoes/configuracoes.css' %}">
+    <link rel="stylesheet" href="{% static 'app_main/css/perfil/perfil.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -44,23 +44,34 @@
     </header>
 
 
-    <section class="config-section">
+    <section class="perfil-section">
 
+        <div class="perfil-container">
+            <div class="perfil">
+                <div class="perfil-name">
 
-        <img class="logo-creditos"
-        src="{% static 'app_main/images/logo.png' %}" alt="pyLa!"></a></li>
+                    <div class="foto"><img
+                            src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png">
+                    </div>
 
-        <div class="creditos">
-            <h1>FÁBRICA DE SOFTWARE 2024/1</h1>
-            <h4>Feito por:</h6>
-                <p>HENRIQUE TESCHE, LEONARDO REUTER E RAFAEL ZANELLA</p>
+                    <div class="nome">{{ username }}</div>
+
+                </div>
+
+                <div class="email">E-mail cadastrado: <p>{{ email }}</p>
+                </div>
+
+                <div class="id-user">ID: {{ id }}</div>
+
+            </div>
         </div>
 
-        <iframe src="https://giphy.com/embed/citBl9yPwnUOs" height="200px" style="outline: none; border: none;" class="giphy-embed" allowFullScreen></iframe>
-
-
+        <input type="button" class="delete-user" value="DELETAR MINHA CONTA">
 
     </section>
+
+    <span class="ju"> ju s2 </span>
+
 </body>
 
 </html>
