@@ -18,4 +18,4 @@ class PlanejamentoForm(forms.ModelForm):
 
     class Meta:
         model = Planejamento  #Define que este formulário está vinculado ao modelo Planejamento
-        fields = ['titulo', 'objetivo', 'investimento_mensal', 'data', 'saldo_atual']
+        fields = ['objetivo', 'investimento_mensal', 'data', 'saldo_atual']

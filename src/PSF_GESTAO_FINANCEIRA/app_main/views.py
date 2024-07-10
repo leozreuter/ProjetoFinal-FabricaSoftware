@@ -47,9 +47,17 @@ def perfil(request):
     Returns:
         HttpResponse: A resposta HTTP contendo a página de perfil ou redirecionamento para a página de login.
     """
+
     if not request.user.is_authenticated:
         return redirect('login')
-    return render(request, 'home/home.html')
+    
+    context = {
+        'username': request.user.username,
+        'email': request.user.email,
+        'id': request.user.id
+    }
+
+    return render(request, 'perfil/perfil.html', context)
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # PLANEJAMENTOS
@@ -71,6 +79,8 @@ def planejamentos(request):
 
     for planejamento in lista_planejamentos:
         planejamento.barra_iterable = range(planejamento.barra)
+
+    print(lista_planejamentos)
 
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
 

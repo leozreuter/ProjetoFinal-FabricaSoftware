@@ -90,12 +90,16 @@ header{
     gap:25px
 } 
 
-.explicacao{
-    max-width: 75%;
-    font-size: 25px;
-    font-weight: 500;
-    text-align: center;
+.titulo{
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    & img{
+        width: 40px;
+    }
 }
+
 
 .save{
     align-self: end;
@@ -149,11 +153,21 @@ header{
     flex-direction: row-reverse;
 }
 
-.titulo{
+label{
     font-size: 26px;
     font-weight: 600;
-    display: flex;
     & img{
         width: 40px;
     }
+}
+
+form p input{
+    height: 40px;
+    width: 160px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
 }
