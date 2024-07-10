@@ -98,17 +98,39 @@ def newplanejamento(request):
 
 @login_required
 def editplanej(request, planejamento_id):
+    """
+    View para editar um planejamento específico.
+
+    Obtém o planejamento correspondente ao planejamento_id para o usuário autenticado.
+    Se o método da requisição for POST, tenta editar o planejamento com os dados do formulário.
+    Se a edição for bem-sucedida, redireciona para a página de planejamentos.
+    Caso contrário, exibe uma mensagem de erro e renderiza o formulário novamente.
+
+    Parametros:
+        request (HttpRequest): A requisição HTTP recebida.
+        planejamento_id (int): O ID do planejamento a ser editado.
+
+    Returns:
+        HttpResponse: Redireciona para a página de planejamentos ou renderiza a página de edição.
+    """
+
+   #Obtenha o planejamento ou retorne um erro 404 se não existir
     planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
+    planejamentos = Planejamentos(request.user)
     
     if request.method == 'POST':
+        #Se o método da requisição for POST, significa que o usuário confirmou a edição
         form = PlanejamentoForm(request.POST, instance=planejamento)
         if form.is_valid():
+            #Tente editar o planejamento
             if planejamentos.editar_planejamento(planejamento_id, form):
-                return redirect('planejamentos')  #Redireciona para a página de planejamentos após a edição
+                #Redirecione para a página de planejamentos após a edição
+                return redirect('planejamentos')
             else:
-                form = PlanejamenoForm(instance=planejamento)
+                #Exibe uma mensagem de erro se a edição falhar
                 messages.error(request, 'Houve um problema ao salvar o planejamento. Verifique os dados e tente novamente.')
     else:
+        #Se não for POST, preencha o formulário com os dados atuais do planejamento
         form = PlanejamentoForm(instance=planejamento)
 
     context = {
@@ -118,7 +140,22 @@ def editplanej(request, planejamento_id):
 
     return render(request, 'planejamentos/editplanejamentos.html', context)
 
+
 def excluirplanej(request, planejamento_id):
+    """
+    View para excluir um planejamento específico.
+
+    Obtém o planejamento correspondente ao planejamento_id para o usuário autenticado.
+    Se o método da requisição for POST, exclui o planejamento.
+    Redireciona para a página de planejamentos após a exclusão.
+
+    Parametros:
+        request (HttpRequest): A requisição HTTP recebida.
+        planejamento_id (int): O ID do planejamento a ser excluído.
+
+    Returns:
+        HttpResponse: Redireciona para a página de planejamentos ou renderiza a página de planejamentos.
+    """
     #Obtenha o planejamento ou retorne um erro 404 se não existir
     planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
 

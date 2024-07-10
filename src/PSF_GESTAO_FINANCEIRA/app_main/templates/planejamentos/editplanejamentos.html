@@ -45,6 +45,7 @@
     </header>
     <form action="{% url 'editplanej' planejamento.id %}" method="POST">
         {% csrf_token %}
+        {{ form.as_p }}
         <section class="section-content">
 
             <div class="container-content">
@@ -61,59 +62,52 @@
                     <p>Deseja aumentar ou diminuir?</p>
                     <div class="buttons">
                         Aumentar:
-                        <input type="radio" id="id-aumenta-objetivo" name="edit-objetivo">
+                        <input type="radio" id="id-aumenta-objetivo" name="edit-objetivo" value="aumentar">
                         Diminuir:
-                        <input type="radio" id="id-diminui-objetivo" name="edit-objetivo">
+                        <input type="radio" id="id-diminui-objetivo" name="edit-objetivo" value="diminuir">
                     </div>
                     <input type="number" name="edit-objetivo" id="id-edit-objetivo" min="1">
                 </div>
-
+    
                 <div class="edit-investimentomensal-container">
                     <p>Investimento atual: <b>{{ planejamento.investimento_mensal }}</b> </p>
                     <p>Deseja aumentar ou diminuir?</p>
                     <div class="buttons">
                         Aumentar:
-                        <input type="radio" id="id-aumenta-investimento" name="edit-investimento">
+                        <input type="radio" id="id-aumenta-investimento" name="edit-investimento" value="aumentar">
                         Diminuir:
-                        <input type="radio" id="id-diminui-investimento" name="edit-investimento">
+                        <input type="radio" id="id-diminui-investimento" name="edit-investimento" value="diminuir">
                     </div>
                     <input type="number" name="edit-investimento" id="id-edit-investimento" min="1">
                 </div>
-
+    
                 <div class="edit-data-container">
                     <p>Data atual: <b>{{ planejamento.data }}</b> </p>
                     <p>Qual a nova data?</p>
-
                     <input type="date" name="edit-data" id="id-edit-data">
                 </div>
-
+    
                 <div class="edit-saldo-container">
                     <p>Saldo atual: <b>{{ planejamento.saldo_atual }}</b> </p>
                     <p>Deseja aumentar ou diminuir?</p>
                     <div class="buttons">
                         Aumentar:
-                        <input type="radio" id="id-aumenta-saldo" name="edit-saldo">
+                        <input type="radio" id="id-aumenta-saldo" name="edit-saldo" value="aumentar">
                         Diminuir:
-                        <input type="radio" id="id-diminui-saldo" name="edit-saldo">
+                        <input type="radio" id="id-diminui-saldo" name="edit-saldo" value="diminuir">
                     </div>
                     <input type="number" name="edit-saldo" id="id-edit-saldo" min="1">
                 </div>
+    
             </div>
-
+    
             <div class="addons">
-
                 <div class="save">
                     <input type="submit" value="SALVAR" class="save-btn">
                 </div>
-                </form>
-                
-                <form action="{% url 'deleteplanejamento' planejamento.id %}" method="POST">
-                {% csrf_token %}
-                    <div class="delete">
-                        <input type="submit" value="EXCLUIR" class="delete-btn">
-                    </div>
-                </form>
-
+            </div>
+        </section>
+    </form>
 
     </div>
     </section>

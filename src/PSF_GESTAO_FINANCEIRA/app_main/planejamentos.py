@@ -17,11 +17,15 @@ class Planejamentos:
         return Planejamento.objects.filter(usuario=self.user)
 
     def editar_planejamento(self, planejamento_id, form):
-        planejamento = Planejamento.objects.get(id=planejamento_id, usuario=self.user)
-        if form.is_valid():
-            form.save()
-            return True
-        return False
+        try:
+            planejamento = Planejamento.objects.get(id=planejamento_id, usuario=self.user)
+            if form.is_valid():
+                planejamento = form.save(commit=False)
+                planejamento.usuario = self.user  #Certifique-se de que o usuário seja atribuído corretamente
+                planejamento.save()
+                return True
+        except Planejamento.DoesNotExist:
+            return False
     
     def excluir_planejamento(self, planejamento_id):
         try:
