@@ -14,15 +14,6 @@ def movimentacoes(request):
     """
     Renderiza a página de movimentações.
 
-<<<<<<< HEAD
-@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
-def movimentacoes(request): 
-    return render(request, 'movimentacoes/movimentacoes.html')
-
-
-
-@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
-=======
     Parametros:
         request: A solicitação HTTP recebida.
 
@@ -32,7 +23,6 @@ def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html')
 
 @login_required
->>>>>>> 34ea35f35ee41dd5476f631ce6c829802297d8c1
 def configuracoes(request):
     """
     Renderiza a página de configurações. Verifica se o usuário está logado.
@@ -58,23 +48,8 @@ def perfil(request):
         HttpResponse: A resposta HTTP contendo a página de perfil ou redirecionamento para a página de login.
     """
     if not request.user.is_authenticated:
-<<<<<<< HEAD
-        return redirect('login')  # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
-
-    context = {  # PASSA UMA BIBLIOTECA COM AS INFOS DO USUÁRIO, QUE SERÁ UTULIZADO NO HTML
-        'id': request.user.id,
-        'username': request.user.username,
-        'email': request.user.email,
-        'data_entrada': request.user.date_joined
-    }
-
-    return render(request, 'perfil/perfil.html', context)
-
-
-=======
         return redirect('login')
     return render(request, 'home/home.html')
->>>>>>> 34ea35f35ee41dd5476f631ce6c829802297d8c1
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # PLANEJAMENTOS
@@ -99,13 +74,7 @@ def planejamentos(request):
 
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
 
-<<<<<<< HEAD
-
-# NOVO PLANEJAMENTOS
-@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
-=======
 @login_required
->>>>>>> 34ea35f35ee41dd5476f631ce6c829802297d8c1
 def newplanejamento(request):
     """
     Cria um novo planejamento. Se o método de solicitação for POST, tenta criar um planejamento com os dados do formulário.
@@ -127,24 +96,17 @@ def newplanejamento(request):
         form = PlanejamentoForm()
     return render(request, 'planejamentos/novoplanejamento.html', {'form': form})
 
-<<<<<<< HEAD
-
-# EDIT PLANEJAMENTOS
-@login_required # VERIFICA SE O USER ESTA LOGADO // Redirecione para a página de login
-def editplanej(request):
-=======
 @login_required
 def editplanej(request, planejamento_id):
     planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
     
->>>>>>> 34ea35f35ee41dd5476f631ce6c829802297d8c1
     if request.method == 'POST':
         form = PlanejamentoForm(request.POST, instance=planejamento)
         if form.is_valid():
             if planejamentos.editar_planejamento(planejamento_id, form):
                 return redirect('planejamentos')  #Redireciona para a página de planejamentos após a edição
             else:
-                form = PlanejamentoForm(instance=planejamento)
+                form = PlanejamenoForm(instance=planejamento)
                 messages.error(request, 'Houve um problema ao salvar o planejamento. Verifique os dados e tente novamente.')
     else:
         form = PlanejamentoForm(instance=planejamento)
@@ -156,9 +118,6 @@ def editplanej(request, planejamento_id):
 
     return render(request, 'planejamentos/editplanejamentos.html', context)
 
-<<<<<<< HEAD
-
-=======
 def excluirplanej(request, planejamento_id):
     #Obtenha o planejamento ou retorne um erro 404 se não existir
     planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
@@ -168,9 +127,8 @@ def excluirplanej(request, planejamento_id):
         planejamento.delete()  #Exclua o planejamento do banco de dados
         return redirect('planejamentos')  #Redirecione para a página de planejamentos após a exclusão
 
-    #Se não for POST, renderize o template de confirmação de exclusão
-    return render(request, 'planejamentos/confirmar_exclusao.html', {'planejamento': planejamento})
->>>>>>> 34ea35f35ee41dd5476f631ce6c829802297d8c1
+    #Se não for POST, volta para a aba de planejamentos
+    return render(request, 'planejamentos/planejamentos.html', {'planejamento': planejamento})
 
 # ----------------------------------------------------------------------------------------------------------------------------- #
 # HOME

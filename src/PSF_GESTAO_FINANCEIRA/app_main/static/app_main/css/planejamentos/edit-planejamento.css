@@ -117,6 +117,7 @@ header{
 
 .save-btn:hover{
     background-color: #004442;
+    cursor: pointer;
 }
 
 .delete{
@@ -127,23 +128,25 @@ header{
 }
 
 .delete-btn{
-    width: 100%;
+    width: 150px;
     height: 40px;
     border-radius: 14px;
     border: none;
-    background-color: #ff2828;
+    background-color: #ff0000;
     color: white;
     font-size: 110%;
     font-weight: 600;
 }
 
 .delete-btn:hover{
-    background-color: #ff0000;
+    background-color: #ad0000;
+    cursor: pointer;
 }
 
 .addons{
     display: flex; 
     gap: 10px;
+    flex-direction: row-reverse;
 }
 
 .titulo{

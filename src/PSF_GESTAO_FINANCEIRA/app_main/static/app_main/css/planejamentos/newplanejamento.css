@@ -115,6 +115,11 @@ header{
     font-weight: 600;
 }
 
+.save-btn:hover{
+    cursor: pointer;
+    background-color: #003d3b;
+}
+
 .titulo{
     display: grid;
     justify-items: center;
