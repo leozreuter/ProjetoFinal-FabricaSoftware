@@ -2,6 +2,23 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Planejamento(models.Model): #Depois de fazer o model tem que realizar a migration: python manage.py makemigrations / python manage.py migrate
+    """
+    Representa um planejamento financeiro do usuário.
+
+    Atributos:
+        usuario (User): Referência ao usuário que criou o planejamento.
+        titulo (str): Título do planejamento.
+        objetivo (Decimal): Valor objetivo a ser alcançado pelo planejamento.
+        investimento_mensal (Decimal): Valor mensal investido no planejamento.
+        data (date): Data do planejamento.
+        saldo_atual (Decimal): Saldo atual do planejamento.
+        concluido (bool): Indica se o planejamento foi concluído.
+
+    Métodos:
+        barra(): Calcula a porcentagem do objetivo alcançado.
+        concluidoSet(): Getter e setter para o atributo concluido.
+        __str__(): Retorna uma representação em string do planejamento.
+    """
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)
     objetivo = models.DecimalField(max_digits=10, decimal_places=2)
@@ -13,6 +30,12 @@ class Planejamento(models.Model): #Depois de fazer o model tem que realizar a mi
 
     @property
     def barra(self):
+        """
+        Calcula a porcentagem do objetivo alcançado.
+
+        Returns:
+            int: Porcentagem do objetivo alcançado, variando de 0 a 100.
+        """
         barra = int((self.saldo_atual * 100) // self.objetivo)
         if barra >= 100:
             barra = 100
