@@ -156,18 +156,33 @@ header{
 label{
     font-size: 26px;
     font-weight: 600;
-    & img{
-        width: 40px;
-    }
 }
 
-form p input{
-    height: 40px;
-    width: 160px;
-    outline: none;
-    font-size: 20px;
-    font-weight: 500;
-    border-radius: 10px;
+.dados{
+    display: flex;
+    gap:40px;
+    align-items: center;
+}
+
+input{
+    width: 100%;
     border: none;
+    outline: none;
     padding-left: 10px;
+    background-color: #ff000000;
+    color: #004442;
+    font-size: 20px;
+}
+
+.input-conteudo{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-left: 10px;
+    font-size: 20px;
+    align-items: center;
+    font-weight: 600;
 }
