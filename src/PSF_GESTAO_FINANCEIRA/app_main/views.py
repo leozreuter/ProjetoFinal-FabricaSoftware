@@ -7,6 +7,7 @@ from .autenticacao import Autenticacao
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import PlanejamentoForm
+from django.utils import timezone
 import random
 from .movimentacoes import MovimentacoesManutencao
 from.models import Planejamento, Movimentacoes
@@ -29,10 +30,6 @@ def movimentacoes(request):
     lista_vazia = not lista_movimentacoes
 
     return render(request, 'movimentacoes/movimentacoes.html', {'movimentacoes': lista_movimentacoes, 'verifica_vazio': lista_vazia})
-
-def newmovimentacao(request):
-
-    return render(request, 'movimentacoes/newmovimentacao.html')
 
 @login_required
 def configuracoes(request):

@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.utils import timezone
 from .models import Movimentacoes
 
 class MovimentacoesManutencao:
@@ -11,7 +12,7 @@ class MovimentacoesManutencao:
             valor_movimentacao=valor_movimentacao,
             descricao=descricao,
             ganho=ganho,
-            usuario=self.user  #Associando a movimentação ao usuário atual
+            usuario=self.user, #Associando a movimentação ao usuário atual
         )
         nova_movimentacao.save()
 
