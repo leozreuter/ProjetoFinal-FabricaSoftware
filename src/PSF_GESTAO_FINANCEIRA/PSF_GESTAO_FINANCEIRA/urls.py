@@ -32,6 +32,7 @@ urlpatterns = [
     path('edit-planejamento/<int:planejamento_id>/', views.editplanej , name='editplanej'),  
     path('newplanejamento/', views.newplanejamento , name='newplanejamento'),
     path('confirmar-exclusão/<int:planejamento_id>/', views.excluirplanej, name='deleteplanejamento'),
+    path('newmovimentacao/', views.newmovimentacao, name='newmovimentacao'),
 
     # QUALQUER URL QUE NÃO EXISTA REDIRECIONA PARA A HOME
     path('<path:qualquer_caminho>', RedirectView.as_view(url='/'))

@@ -10,6 +10,7 @@ from .forms import PlanejamentoForm
 import random
 from.models import Planejamento
 
+@login_required
 def movimentacoes(request):
     """
     Renderiza a página de movimentações.
@@ -21,6 +22,10 @@ def movimentacoes(request):
         HttpResponse: A resposta HTTP contendo a página de movimentações.
     """
     return render(request, 'movimentacoes/movimentacoes.html')
+
+def newmovimentacao(request):
+
+    return render(request, 'movimentacoes/newmovimentacao.html')
 
 @login_required
 def configuracoes(request):
