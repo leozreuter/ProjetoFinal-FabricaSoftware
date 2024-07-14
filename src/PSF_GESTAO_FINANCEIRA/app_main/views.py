@@ -23,7 +23,12 @@ def movimentacoes(request):
     Returns:
         HttpResponse: A resposta HTTP contendo a página de movimentações.
     """
-    return render(request, 'movimentacoes/movimentacoes.html')
+
+    movimentacoes_obj=Movimentacoesm(request.user)
+    lista_movimentacoes = movimentacoes_obj.listar_movimentacoes()
+    lista_vazia = not lista_movimentacoes
+
+    return render(request, 'movimentacoes/movimentacoes.html', {'movimentacoes': lista_movimentacoes, 'verifica_vazio': lista_vazia})
 
 def newmovimentacao(request):
 
@@ -87,7 +92,6 @@ def planejamentos(request):
     for planejamento in lista_planejamentos:
         planejamento.barra_iterable = range(planejamento.barra)
 
-    print(lista_planejamentos)
 
     return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
 
@@ -288,3 +292,5 @@ def newmovimentacao(request):
 def excluirMovimentacao(request, movimentacao_id):
     mov = Movimentacoesm(user=request.user)
     mov.excluir_movimentacao(movimentacao_id)
+
+    return redirect('movimentacoes')

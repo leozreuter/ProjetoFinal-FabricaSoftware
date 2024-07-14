@@ -11,7 +11,7 @@ body{
     flex-direction: column;
     width: 100%;
     background-color: #5BA5A3;
-    overflow: hidden;
+    overflow: visible;
     align-items: center;
     font-family: "Poppins", sans-serif;
 }
