@@ -131,8 +131,26 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# PARTE DE SESSÃO DE USUÁRIO
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Usa o banco de dados para armazenar sessões
+#PARTE DE SESSÃO DE USUÁRIO
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  #Usa o banco de dados para armazenar sessões
 SESSION_COOKIE_NAME = 'sessionid'
 SESSION_COOKIE_AGE = 86400  # 1 DIA
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',  #Ajuste o nível conforme necessário
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',  #Ajuste o nível conforme necessário
+            'propagate': True,
+        },
+    },
+}
