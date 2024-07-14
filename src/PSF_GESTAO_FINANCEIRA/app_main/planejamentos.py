@@ -65,7 +65,7 @@ class Planejamentos:
             planejamento = Planejamento.objects.get(id=planejamento_id, usuario=self.user)
             if form.is_valid():
                 planejamento = form.save(commit=False)
-                planejamento.usuario = self.user  # Certifique-se de que o usuário seja atribuído corretamente
+                planejamento.usuario = self.user  #Certifique-se de que o usuário seja atribuído corretamente
                 planejamento.save()
                 return True
         except Planejamento.DoesNotExist:

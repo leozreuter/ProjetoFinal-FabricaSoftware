@@ -19,6 +19,7 @@ class Planejamento(models.Model): #Depois de fazer o model tem que realizar a mi
         concluidoSet(): Getter e setter para o atributo concluido.
         __str__(): Retorna uma representação em string do planejamento.
     """
+
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)
     objetivo = models.DecimalField(max_digits=10, decimal_places=2)
@@ -53,3 +54,17 @@ class Planejamento(models.Model): #Depois de fazer o model tem que realizar a mi
 
     def __str__(self):
         return self.titulo
+    
+class Movimentacoes(models.Model):
+    """
+    Representa as movimentações financeiras associadas a um planejamento.
+
+    Atributos:
+        valor_movimentacao (Decimal): Valor da movimentação financeira.
+        descricao (str): Descrição da movimentação.
+        ganho (bool): Indica se a movimentação é um ganho (True) ou uma despesa (False).
+    """
+
+    valor_movimentacao = models.DecimalField(max_digits=10, decimal_places=2)
+    descricao = models.CharField(max_length=200)
+    ganho = models.BooleanField(default=False)

@@ -8,7 +8,9 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .forms import PlanejamentoForm
 import random
-from.models import Planejamento
+from .movimentacoes import Movimentacoesm
+from.models import Planejamento, Movimentacoes
+
 
 @login_required
 def movimentacoes(request):
@@ -269,3 +271,16 @@ def logout_view(request):
     """
     logout(request)
     return render(request, 'login/login.html')
+
+def newmovimentacao(request):
+    if request.method == 'POST':
+        valor_movimentacao = request.POST['quantia']
+        descricao = request.POST['saldo_atual']
+        ganho = request.POST['ganhodespesa'] == 'ganho'
+        
+        mov = Movimentacoesm(user=request.user)
+        mov.criar_movimentacao(valor_movimentacao, descricao, ganho)
+        
+        return redirect('movimentacoes')  #Redireciona para a página de listagem de movimentações
+
+    return render(request, 'movimentacoes/newmovimentacao.html')
