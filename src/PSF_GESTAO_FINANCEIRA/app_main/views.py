@@ -284,3 +284,7 @@ def newmovimentacao(request):
         return redirect('movimentacoes')  #Redireciona para a página de listagem de movimentações
 
     return render(request, 'movimentacoes/newmovimentacao.html')
+
+def excluirMovimentacao(request, movimentacao_id):
+    mov = Movimentacoesm(user=request.user)
+    mov.excluir_movimentacao(movimentacao_id)

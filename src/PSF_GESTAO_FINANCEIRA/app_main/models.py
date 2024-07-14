@@ -64,7 +64,8 @@ class Movimentacoes(models.Model):
         descricao (str): Descrição da movimentação.
         ganho (bool): Indica se a movimentação é um ganho (True) ou uma despesa (False).
     """
-
+    
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     valor_movimentacao = models.DecimalField(max_digits=10, decimal_places=2)
     descricao = models.CharField(max_length=200)
     ganho = models.BooleanField(default=False)
