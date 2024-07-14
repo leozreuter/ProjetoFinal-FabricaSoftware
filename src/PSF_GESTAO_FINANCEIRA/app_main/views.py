@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .forms import PlanejamentoForm
 import random
-from .movimentacoes import Movimentacoesm
+from .movimentacoes import MovimentacoesManutencao
 from.models import Planejamento, Movimentacoes
 
 
@@ -24,7 +24,7 @@ def movimentacoes(request):
         HttpResponse: A resposta HTTP contendo a página de movimentações.
     """
 
-    movimentacoes_obj=Movimentacoesm(request.user)
+    movimentacoes_obj = MovimentacoesManutencao(request.user)
     lista_movimentacoes = movimentacoes_obj.listar_movimentacoes()
     lista_vazia = not lista_movimentacoes
 
@@ -282,7 +282,7 @@ def newmovimentacao(request):
         descricao = request.POST['saldo_atual']
         ganho = request.POST['ganhodespesa'] == 'ganho'
         
-        mov = Movimentacoesm(user=request.user)
+        mov = MovimentacoesManutencao(user=request.user)
         mov.criar_movimentacao(valor_movimentacao, descricao, ganho)
         
         return redirect('movimentacoes')  #Redireciona para a página de listagem de movimentações
@@ -290,7 +290,7 @@ def newmovimentacao(request):
     return render(request, 'movimentacoes/newmovimentacao.html')
 
 def excluirMovimentacao(request, movimentacao_id):
-    mov = Movimentacoesm(user=request.user)
+    mov = MovimentacoesManutencao(user=request.user)
     mov.excluir_movimentacao(movimentacao_id)
 
     return redirect('movimentacoes')

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from .models import Movimentacoes
 
-class Movimentacoesm:
+class MovimentacoesManutencao:
 
     def __init__(self, user):
         self.user = user
