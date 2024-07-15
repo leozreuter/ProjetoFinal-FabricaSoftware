@@ -22,3 +22,5 @@ class PlanejamentosTestCase(TestCase):
         planejamentos.atualizar_investimentos_mensais()
         self.planejamento.refresh_from_db()
         self.assertEqual(self.planejamento.saldo_atual, 100)
+
+        #Comando no terminal pra execução de testes: python3 manage.py test
