@@ -14,12 +14,17 @@ class MovimentacoesManutencao:
     def calcular_saldo(self):
         movimentacoes_usuario = Movimentacoes.objects.filter(usuario=self.user)
         saldo_atual = Decimal('0.00')  #Inicializa saldo_atual como Decimal
+        ganhos_totais = Decimal('0.00')  #Inicializa saldo_atual como Decimal
+        despesa_total = Decimal('0.00')  #Inicializa saldo_atual como Decimal
         for mov in movimentacoes_usuario:
             if mov.ganho:
                 saldo_atual += mov.valor_movimentacao
+                ganhos_totais = mov.valor_movimentacao + ganhos_totais
             else:
                 saldo_atual -= mov.valor_movimentacao
-        return saldo_atual
+                despesa_total = mov.valor_movimentacao + despesa_total
+
+        return saldo_atual, ganhos_totais, despesa_total
 
     def atualizar_saldo_usuario(self):
         try:

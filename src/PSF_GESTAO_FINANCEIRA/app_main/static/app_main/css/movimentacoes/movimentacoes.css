@@ -108,8 +108,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    
-    
 }
 
 .history-container{
@@ -129,15 +127,124 @@ header{
     height: 170px;
     width: 100%;
     border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 30px 10px 30px;
+    gap: 150px;
 }
 
 .history-item:hover{
     background-color: #9c9c9c;
 }
 
-.despesas_mes{
+.saldo_atual_total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & span{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 600;
+
+    }
+}
+
+.despesas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & span{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        color: red;
+
+    }
+}
+
+.ganhos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & span{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        color: green;
+
+    }
+}
+
+.cifrao-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 5px;
 
     & img{
-        transform: rotate(180deg);
+        width: 80px;
+        height: 80px;
     }
+    & h4{
+        font-size: 10px;
+        color: #505050;
+    }
+}
+
+.data_criacao{
+    position: absolute;
+    transform: translateX(63vw);
+    font-size: 12px;
+    align-self: flex-end;
+}
+
+.dados{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.descricao{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    & h3{
+        font-size: 24px;
+    }
+    & p{
+        font-size: 20px;
+        font-weight: 500;
+        width: 450px;
+        text-align: center;
+    }
+}
+
+.valor{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    & h3{
+        font-size: 24px;
+    }
+    & p{
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+
+.semMovimentacao{
+    text-align: center;
+    font-size: 18px;
 }

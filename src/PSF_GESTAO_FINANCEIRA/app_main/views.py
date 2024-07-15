@@ -12,25 +12,6 @@ import random
 from .movimentacoes import MovimentacoesManutencao
 from.models import Planejamento, Movimentacoes
 
-
-@login_required
-def movimentacoes(request):
-    """
-    Renderiza a página de movimentações.
-
-    Parametros:
-        request: A solicitação HTTP recebida.
-
-    Returns:
-        HttpResponse: A resposta HTTP contendo a página de movimentações.
-    """
-
-    movimentacoes_obj = MovimentacoesManutencao(request.user)
-    lista_movimentacoes = movimentacoes_obj.listar_movimentacoes()
-    lista_vazia = not lista_movimentacoes
-
-    return render(request, 'movimentacoes/movimentacoes.html', {'movimentacoes': lista_movimentacoes, 'verifica_vazio': lista_vazia})
-
 @login_required
 def configuracoes(request):
     """
@@ -132,41 +113,19 @@ def editplanej(request, planejamento_id):
         HttpResponse: Redireciona para a página de planejamentos ou renderiza a página de edição.
     """
 
-   #Obtenha o planejamento ou retorne um erro 404 se não existir
-    # planejamento = get_object_or_404(Planejamento, id=planejamento_id, usuario=request.user)
-    # planejamentos = Planejamentos(request.user)
-    
-    # if request.method == 'POST':
-    #     #Se o método da requisição for POST, significa que o usuário confirmou a edição
-    #     form = PlanejamentoForm(request.POST, instance=planejamento)
-    #     if form.is_valid():
-    #         #Tente editar o planejamento
-    #         if planejamentos.editar_planejamento(planejamento_id, form):
-    #             #Redirecione para a página de planejamentos após a edição
-    #             return redirect('planejamentos')
-    #         else:
-    #             #Exibe uma mensagem de erro se a edição falhar
-    #             messages.error(request, 'Houve um problema ao salvar o planejamento. Verifique os dados e tente novamente.')
-    # else:
-    #     #Se não for POST, preencha o formulário com os dados atuais do planejamento
-    #     form = PlanejamentoForm(instance=planejamento)
-
-    # context = {
-    #     'form': form,
-    #     'planejamento': planejamento,
-    # }
-
-    # return render(request, 'planejamentos/editplanejamentos.html', context)
-
+    #Obtenha o planejamento ou retorne um erro 404 se não existir
     planejamento = get_object_or_404(Planejamento, id=planejamento_id)
     if request.method == 'POST':
+        #Se o método da requisição for POST, significa que o usuário confirmou a edição
         form = PlanejamentoForm(request.POST, instance=planejamento)
-        if form.is_valid():
+        
+        if form.is_valid(): #Tente editar o planejamento
             form.save()
-            return redirect('planejamentos')
+            return redirect('planejamentos') #Redirecione para a página de planejamentos após a edição
         else:
             print(form.is_valid())
-    else:
+    else: 
+        #Se não for POST, preencha o formulário com os dados atuais do planejamento
         form = PlanejamentoForm(instance=planejamento)
     
     return render(request, 'planejamentos/editplanejamentos.html', {'form': form, 'planejamento': planejamento})
@@ -273,10 +232,38 @@ def logout_view(request):
     logout(request)
     return render(request, 'login/login.html')
 
+@login_required
+def movimentacoes(request):
+    """
+    Renderiza a página de movimentações.
+
+    Parametros:
+        request: A solicitação HTTP recebida.
+
+    Returns:
+        HttpResponse: A resposta HTTP contendo a página de movimentações.
+    """
+
+    movimentacoes_obj = MovimentacoesManutencao(request.user)
+    lista_movimentacoes = movimentacoes_obj.listar_movimentacoes()
+    lista_vazia = not lista_movimentacoes
+
+    saldo_soma, ganhos, despesas  = movimentacoes_obj.calcular_saldo()
+
+    contexto = {
+        'verifica_vazio': lista_vazia, 
+        'soma': saldo_soma,
+        'ganhos': ganhos,
+        'despesas': despesas,
+        'movimentacoes': lista_movimentacoes
+    }
+
+    return render(request, 'movimentacoes/movimentacoes.html', contexto)
+
 def newmovimentacao(request):
     if request.method == 'POST':
         valor_movimentacao = request.POST['quantia']
-        descricao = request.POST['saldo_atual']
+        descricao = request.POST['descricao']
         ganho = request.POST['ganhodespesa'] == 'ganho'
         
         mov = MovimentacoesManutencao(user=request.user)

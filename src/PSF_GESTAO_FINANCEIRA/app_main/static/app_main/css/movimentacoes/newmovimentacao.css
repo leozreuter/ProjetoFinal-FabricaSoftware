@@ -68,24 +68,40 @@ header{
 }
 
 
-.session-containers{
+.section-content{
     height: max-content;
     width: 80vw;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: end;
-    gap: 15px;
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
-.add-movimentacao{
-    width: 200px;
-    height: 40px;
+.container-content{
+    background-color: #ffffffab;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; 
+    text-align: center;
+    gap: 25px;
 }
 
-.add-movimentacao-btn{
+
+.save{
+    align-self: end;
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.save-btn{
     width: 100%;
     height: 40px;
     border-radius: 14px;
@@ -94,5 +110,43 @@ header{
     color: white;
     font-size: 110%;
     font-weight: 600;
+}
+
+.save-btn:hover{
+    cursor: pointer;
+    background-color: #003d3b;
+}
+
+.input-conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 5px;
+    margin-top: 5px;
+
+    & input{
+        padding-left: 5px;
+        width: 90%;
+        outline: none;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+
+.dados{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.descricao div{
+    height: 100px;
+    align-items: start;
+    padding-top: 10px;
 }
 
