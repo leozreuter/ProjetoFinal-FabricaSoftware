@@ -29,7 +29,7 @@ class Autenticacao:
             email = request.POST.get('email')
             senha = request.POST.get('senha')
 
-            #Verifica se ja existe um usuario cadastrado no Banco de Dados
+            #Verifica se ja existe um usuario cadastrado no Banco de Dados com a mesmo nick e o mesmo e-mail
             user = User.objects.filter(username=username).first() or User.objects.filter(email=email).first()
 
             #Se existir (TRUE), então o cadastro falha e volta pra pagina principal de cadastro

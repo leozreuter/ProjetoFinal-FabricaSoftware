@@ -1,16 +1,13 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
-from django.contrib.auth.models import User
-from .planejamentos import Planejamentos
-from .autenticacao import Autenticacao
-from django.http import HttpResponse
-from django.contrib import messages
-from .forms import PlanejamentoForm
-from django.utils import timezone
-import random
 from .movimentacoes import MovimentacoesManutencao
 from.models import Planejamento, Movimentacoes
+from .planejamentos import Planejamentos
+from .autenticacao import Autenticacao
+from .forms import PlanejamentoForm
+import random
+
 
 @login_required
 def configuracoes(request):
@@ -68,10 +65,10 @@ def planejamentos(request):
     lista_vazia = not lista_planejamentos
 
     for planejamento in lista_planejamentos:
-        planejamento.barra_iterable = range(planejamento.barra)
+        planejamento.barra_iteravel = range(planejamento.barra)
 
 
-    return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verificaVazio': lista_vazia})
+    return render(request, 'planejamentos/planejamentos.html', {'planejamentos': lista_planejamentos, 'verifica_vazio': lista_vazia})
 
 @login_required
 def newplanejamento(request):
@@ -130,7 +127,7 @@ def editplanej(request, planejamento_id):
     
     return render(request, 'planejamentos/editplanejamentos.html', {'form': form, 'planejamento': planejamento})
 
-
+@login_required
 def excluirplanej(request, planejamento_id):
     """
     View para excluir um planejamento específico.
@@ -193,6 +190,8 @@ def home(request):
     }
     return render(request, 'home/home.html', contexto)
 
+# ----------------------------------------------------------------------------------------------------------------------------- #
+# Autenticação
 def cadastro(request):
     """
     Renderiza a página de cadastro e realiza o processo de cadastro de usuário.
@@ -232,6 +231,8 @@ def logout_view(request):
     logout(request)
     return render(request, 'login/login.html')
 
+# ----------------------------------------------------------------------------------------------------------------------------- #
+# MOVIMENTAÇÕES
 @login_required
 def movimentacoes(request):
     """
@@ -244,7 +245,7 @@ def movimentacoes(request):
         HttpResponse: A resposta HTTP contendo a página de movimentações.
     """
 
-    movimentacoes_obj = MovimentacoesManutencao(request.user)
+    movimentacoes_obj = MovimentacoesManutencao(request.user) #Criando o objeto da classe que gerencia as manutenções e passando o usuário que mandou a requisição como parâmetro
     lista_movimentacoes = movimentacoes_obj.listar_movimentacoes()
     lista_vazia = not lista_movimentacoes
 
@@ -261,6 +262,15 @@ def movimentacoes(request):
     return render(request, 'movimentacoes/movimentacoes.html', contexto)
 
 def newmovimentacao(request):
+    """
+    Pega os dados sendo enviados pelo formulário em html por POST e chama a função pra criar a movimentação
+
+    Parametros:
+        request: A solicitação HTTP recebida.
+
+    Returns:
+        HttpResponse: A resposta HTTP contendo a página de movimentações.
+    """
     if request.method == 'POST':
         valor_movimentacao = request.POST['quantia']
         descricao = request.POST['descricao']
@@ -272,9 +282,3 @@ def newmovimentacao(request):
         return redirect('movimentacoes')  #Redireciona para a página de listagem de movimentações
 
     return render(request, 'movimentacoes/newmovimentacao.html')
-
-def excluirMovimentacao(request, movimentacao_id):
-    mov = MovimentacoesManutencao(user=request.user)
-    mov.excluir_movimentacao(movimentacao_id)
-
-    return redirect('movimentacoes')

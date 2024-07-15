@@ -1,4 +1,6 @@
 from .models import Planejamento
+from django.utils import timezone
+from datetime import timedelta
 
 class Planejamentos:
     """
@@ -8,11 +10,12 @@ class Planejamentos:
         user (User): Usuário para o qual os planejamentos são manipulados.
 
     Métodos:
-        __init__(user): Inicializa a classe com o usuário especificado.
+         __init__(user): Inicializa a classe com o usuário especificado.
         criar_planejamento(form): Cria um novo planejamento com base nos dados do formulário.
         listar_planejamentos(): Retorna todos os planejamentos do usuário.
         editar_planejamento(planejamento_id, form): Edita um planejamento existente com base nos dados do formulário.
         excluir_planejamento(planejamento_id): Exclui um planejamento existente com base no ID fornecido.
+        atualizar_investimentos_mensais(): Atualiza o saldo atual de cada planejamento adicionando o investimento mensal após um mês.
     """
 
     def __init__(self, user):
@@ -48,6 +51,8 @@ class Planejamentos:
         Returns:
             QuerySet: QuerySet contendo todos os planejamentos do usuário.
         """
+        
+        self.atualizar_investimentos_mensais()
         return Planejamento.objects.filter(usuario=self.user)
 
     def editar_planejamento(self, planejamento_id, form):
@@ -87,3 +92,16 @@ class Planejamentos:
             return True
         except Planejamento.DoesNotExist:
             return False
+
+    def atualizar_investimentos_mensais(self):
+        """
+        Atualiza o saldo atual de cada planejamento adicionando o investimento mensal após um mês.
+        """
+        hoje = timezone.now().date()
+        planejamentos = Planejamento.objects.filter(usuario=self.user)
+        
+        for planejamento in planejamentos:
+            if (hoje - planejamento.data).days >= 30:
+                planejamento.saldo_atual += planejamento.investimento_mensal
+                planejamento.data = hoje  # Atualiza a data para hoje
+                planejamento.save()

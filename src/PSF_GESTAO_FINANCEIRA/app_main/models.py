@@ -60,9 +60,11 @@ class Movimentacoes(models.Model):
     Representa as movimentações financeiras associadas a um planejamento.
 
     Atributos:
+        usuario (User): Referência ao usuário que criou a movimentação.
         valor_movimentacao (Decimal): Valor da movimentação financeira.
         descricao (str): Descrição da movimentação.
         ganho (bool): Indica se a movimentação é um ganho (True) ou uma despesa (False).
+        data_criacao(Date): indica a data que foi inserida a movimentação
     """
     
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -72,5 +74,12 @@ class Movimentacoes(models.Model):
     data_criacao = models.DateField(auto_now_add=True)
 
 class PerfilUsuario(models.Model):
+    """
+    Tabela para vincular o valor total das movimentações com o usuario
+
+    Atributos:
+        usuario (User): Referência ao usuário.
+        valor_total_movimentacoes(Decimal): valor total das movimentações(Gastos e Despesas)
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     valor_total_movimentacoes = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True)

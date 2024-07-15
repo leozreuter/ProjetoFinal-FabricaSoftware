@@ -62,7 +62,7 @@
             </div>
 
             <div class="container-itens">
-                {% if verificaVazio %}
+                {% if verifica_vazio %}
                     <div class="semPlanejamentos"> Você não tem nenhum planejamento! Crie e acompanhe! </div>
                 {% endif %}
 
@@ -112,7 +112,7 @@
                         <p>Barra de progresso:</p>
                         <span><p>{{ planejamento.barra }}%</p></span>
                         <div class="barra_cheia">
-                            {% for i in planejamento.barra_iterable %}
+                            {% for i in planejamento.barra_iteravel %}
                             <div class="porcentagem"></div>
                             {% endfor %}
                         </div>
